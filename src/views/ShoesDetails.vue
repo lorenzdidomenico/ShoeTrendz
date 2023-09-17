@@ -21,7 +21,7 @@
     <p v-else>Non disponibile</p>
     <p v-show="shoe.onSale">In vendita!</p>
     <div>
-      <BaseButton>Compra ora a {{ shoe.price }} euro</BaseButton>
+      <BaseButton :shoe="shoe">Compra ora a {{ shoe.price }} euro</BaseButton>
     </div>
     <p>
       <router-link v-bind:to="{ name: 'shoes-list' }"

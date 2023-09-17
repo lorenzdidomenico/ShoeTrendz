@@ -1,31 +1,25 @@
-<!--<template>
+<template>
   <div>
-    <h1>Carrello</h1>
-    <div v-if="cartItems.length === 0">
-      <p>Il carrello è vuoto.</p>
-    </div>
-    <div v-else>
-      <div v-for="item in cartItems" :key="item.id">
-        <CartCard :item="item"></CartCard>
-      </div>
-    </div>
+    <h1>Contenuto del Carrello</h1>
+    <ul>
+      <li v-for="(scarpa, index) in scarpeNelCarrello" :key="index">
+        <!-- Verifica se 'scarpa' è definita e se ha le proprietà 'product' e 'price' -->
+        <template v-if="scarpa && scarpa.product && scarpa.price">
+          {{ scarpa.product }} - {{ scarpa.price }} €
+        </template>
+      </li>
+    </ul>
   </div>
 </template>
--->
-
-<div v-if="cartItems.length === 0">
-  <p>Il carrello è vuoto.</p>
-</div>
-<div v-else>
-  <!-- Itera sugli elementi nel carrello e visualizzali qui -->
-</div>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  data() {
-    return {
-      cartItems: [], // Assicurati che cartItems sia inizializzata come un array vuoto
-    };
+  computed: {
+    ...mapGetters(["scarpeNelCarrello"]),
   },
 };
 </script>
+
+<style scoped></style>

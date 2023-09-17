@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BaseButton>Compra ora a {{ shoe.price }} euro</BaseButton>
+    <BaseButton :shoe="shoe">Compra ora a {{ shoe.price }} euro</BaseButton>
     <div class="shoe-card -shadow">
       <router-link
         class="shoe-link"
@@ -28,7 +28,6 @@ export default {
   data: function () {
     return {};
   },
-  methods: {},
 };
 </script>
 
