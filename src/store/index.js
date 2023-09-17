@@ -74,6 +74,7 @@ export default createStore({
       },
     ],
     carrello: 0,
+    scarpeNelCarrello: [],
     utente: {
       nome: "Mario",
       cognome: "Rossi",
@@ -82,11 +83,13 @@ export default createStore({
     },
   },
   mutations: {
-    AGGIUNGI_CARRELLO: function (state) {
+    AGGIUNGI_CARRELLO: function (state, scarpa) {
       state.carrello++;
+      state.scarpeNelCarrello.push(scarpa);
     },
     SVUOTA_CARRELLO: function (state) {
       state.carrello = 0;
+      state.scarpeNelCarrello = [];
     },
   },
   actions: {},
@@ -100,6 +103,9 @@ export default createStore({
     },
     numeroScarpe: function (state) {
       return state.shoes.length;
+    },
+    scarpeNelCarrello: (state) => {
+      return state.scarpeNelCarrello;
     },
   },
 });

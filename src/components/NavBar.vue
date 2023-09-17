@@ -7,7 +7,8 @@
       Nike
     </div>
     <nav>
-      <router-link v-bind:to="{ name: 'shoes-list' }">Scarpe</router-link>
+      <router-link v-bind:to="{ name: 'shoes-list' }">Scarpe</router-link> |
+      <router-link v-bind:to="{ name: 'carrello' }">Carrello</router-link>
       | Scarpe: {{ numeroScarpe }} | Carrello ({{ carrello }})
       <button @click="svuotaCarrello">Svuota</button>
     </nav>
