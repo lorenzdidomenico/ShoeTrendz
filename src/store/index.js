@@ -75,12 +75,6 @@ export default createStore({
     ],
     carrello: 0,
     scarpeNelCarrello: [],
-    utente: {
-      nome: "Mario",
-      cognome: "Rossi",
-      eta: 78,
-      email: "mario78@pippo.it",
-    },
   },
   mutations: {
     AGGIUNGI_CARRELLO: function (state, scarpa) {

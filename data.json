@@ -1,0 +1,18 @@
+{
+  "utenti": [
+    {
+      "id": 1,
+      "nome": "Mario",
+      "cognome": "Rossi",
+      "eta": 78,
+      "email": "mario78@pippo.it"
+    },
+    {
+      "id": 2,
+      "nome": "Luca",
+      "cognome": "Gardenghi",
+      "eta": 23,
+      "email": "luca.gardenghi28@gmail.com"
+    }
+  ]
+}
