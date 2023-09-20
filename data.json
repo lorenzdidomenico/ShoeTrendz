@@ -13,6 +13,13 @@
       "cognome": "Gardenghi",
       "eta": 23,
       "email": "luca.gardenghi28@gmail.com"
+    },
+    {
+      "id": 3,
+      "nome": "Letizia",
+      "cognome": "Mollo",
+      "eta": 23,
+      "email": "letizia.mollo24@gmail.com"
     }
   ]
 }
