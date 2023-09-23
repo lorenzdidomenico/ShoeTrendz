@@ -2,19 +2,48 @@
   <div>
     <h2>Accesso</h2>
     <form @submit.prevent="effettuaAccesso">
-      <div>
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" v-model="nome" required />
+      <div class="form-group row">
+        <label for="nome" class="col-sm-3 col-form-label">Nome:</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            id="nome"
+            v-model="nome"
+            required
+            class="form-control"
+          />
+        </div>
       </div>
-      <div>
-        <label for="cognome">Cognome:</label>
-        <input type="text" id="cognome" v-model="cognome" required />
+      <br />
+      <div class="form-group row">
+        <label for="cognome" class="col-sm-3 col-form-label">Cognome:</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            id="cognome"
+            v-model="cognome"
+            required
+            class="form-control"
+          />
+        </div>
       </div>
-      <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" v-model="email" required />
+      <br />
+      <div class="form-group row">
+        <label for="email" class="col-sm-3 col-form-label">Email:</label>
+        <div class="col-sm-9">
+          <input
+            type="email"
+            id="email"
+            v-model="email"
+            required
+            class="form-control"
+          />
+        </div>
       </div>
-      <button type="submit">Accedi</button>
+      <br />
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Accedi</button>
+      </div>
     </form>
   </div>
 </template>

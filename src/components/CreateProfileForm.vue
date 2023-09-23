@@ -2,28 +2,61 @@
   <div>
     <h2>Inserisci un nuovo utente</h2>
     <form @submit.prevent="onSubmit">
-      <div>
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" v-model="nuovoUtente.nome" required />
+      <div class="form-group row">
+        <label for="nome" class="col-sm-3 col-form-label">Nome:</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            id="nome"
+            v-model="nuovoUtente.nome"
+            required
+            class="form-control"
+          />
+        </div>
       </div>
-      <div>
-        <label for="cognome">Cognome:</label>
-        <input
-          type="text"
-          id="cognome"
-          v-model="nuovoUtente.cognome"
-          required
-        />
+      <br />
+      <div class="form-group row">
+        <label for="cognome" class="col-sm-3 col-form-label">Cognome:</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            id="cognome"
+            v-model="nuovoUtente.cognome"
+            required
+            class="form-control"
+          />
+        </div>
       </div>
-      <div>
-        <label for="eta">Età:</label>
-        <input type="number" id="eta" v-model="nuovoUtente.eta" required />
+      <br />
+      <div class="form-group row">
+        <label for="eta" class="col-sm-3 col-form-label">Età:</label>
+        <div class="col-sm-9">
+          <input
+            type="number"
+            id="eta"
+            v-model="nuovoUtente.eta"
+            required
+            class="form-control"
+          />
+        </div>
       </div>
-      <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" v-model="nuovoUtente.email" required />
+      <br />
+      <div class="form-group row">
+        <label for="email" class="col-sm-3 col-form-label">Email:</label>
+        <div class="col-sm-9">
+          <input
+            type="email"
+            id="email"
+            v-model="nuovoUtente.email"
+            required
+            class="form-control"
+          />
+        </div>
       </div>
-      <button type="submit">Salva</button>
+      <br />
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Salva</button>
+      </div>
     </form>
     <div v-if="messaggioConferma" class="alert">{{ messaggioConferma }}</div>
   </div>

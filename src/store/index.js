@@ -12,8 +12,7 @@ export default createStore({
         selectedModel: 0,
         external_url:
           "https://www.nike.com/it/t/scarpa-da-running-su-strada-pegasus-40-eliud-kipchoge-3rDG6v/FJ0686-100",
-        onSale: true,
-        inventory: 10,
+        inventory: 15,
         price: 139.99,
         image_url:
           "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7ff2e824-a8e5-482a-aedf-8a7604c0a401/scarpa-da-running-su-strada-pegasus-40-eliud-kipchoge-3rDG6v.png",
@@ -32,8 +31,7 @@ export default createStore({
           "Creata per il parquet, ma ideale per la città, Nike Dunk Low Retro ritorna con strati esterni fantastici e i colori originali della squadra. Questa icona da basket ricorda le atmosfere anni '80 con una tomaia in pelle di prima qualità, per un look perfetto che non passa inosservato. La tecnologia moderna contribuisce ad assicurare un comfort assolutamente attuale.",
         selectedModel: 0,
         external_url: "https://www.nike.com/it/t/scarpa-dunk-low-retro-QgD9Gv",
-        onSale: true,
-        inventory: 10,
+        inventory: 9,
         price: 119.99,
         image_url:
           "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/scarpa-dunk-low-retro-QgD9Gv.png",
@@ -57,8 +55,7 @@ export default createStore({
         selectedModel: 0,
         external_url:
           "https://www.nike.com/it/t/scarpa-air-jordan-1-mid-5W9lRJ/DV0991-101",
-        onSale: true,
-        inventory: 10,
+        inventory: 0,
         price: 139.99,
         image_url:
           "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/24750e81-85ed-4b0e-8cd8-becf0cd97b2f/scarpa-air-jordan-1-mid-5W9lRJ.png",
@@ -71,6 +68,48 @@ export default createStore({
           "Logo Swoosh cucito.",
           "SLogo Wings sul collare.",
         ],
+      },
+      {
+        id: 4,
+        product: "Nike Air Force 1 '07",
+        brand: "Nike",
+        description:
+          "Segna punti importanti con questo classico leggendario. Unione perfetta di comfort per il parquet e stile per il tempo libero, questo modello originale da basket unisce pelle e morbidi strati esterni in pelle scamosciata per uno stile che non passa inosservato. Le unità Nike Air nascoste e la struttura resistente stile anni Ottanta offrono il comfort che conosci e ami.",
+        selectedModel: 0,
+        external_url:
+          "https://www.nike.com/it/t/scarpa-air-force-1-07-HWPVQ7/FQ7779-100",
+        inventory: 10,
+        price: 119.99,
+        image_url:
+          "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/deb6601f-9cab-4564-99d6-ee0349f11d19/scarpa-air-force-1-07-HWPVQ7.png",
+        features: [
+          "Questa scarpa incarna uno stile resistente e inconfondibile, con cuciture robuste, materiali impeccabili e design preformato della suola.",
+          "Originariamente progettata per le prestazioni sul parquet, l'ammortizzazione Nike Air offre un comfort ideale.",
+          "Il battistrada in gomma con classico punto di torsione assicura trazione e resistenza eccezionali.",
+          "Il collare imbottito a taglio basso dona un look essenziale e una calzata confortevole.",
+          "Schiuma nell'intersuola",
+          "Inserti traforati sulla punta",
+        ],
+      },
+    ],
+    cards: [
+      {
+        id: 1,
+        title: "Titolo#1",
+        image: "https://picsum.photos/200/100?random=3",
+        text: "survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing",
+      },
+      {
+        id: 2,
+        title: "Titolo#2",
+        image: "https://picsum.photos/200/100?random=12",
+        text: "survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing",
+      },
+      {
+        id: 3,
+        title: "Titolo#3",
+        image: "https://picsum.photos/200/100?random=4",
+        text: "survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing",
       },
     ],
     carrello: 0,

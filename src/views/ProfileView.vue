@@ -4,6 +4,7 @@
 
     <!-- Mostra il form di accesso -->
     <LoginForm @accessoRiuscito="gestisciAccessoRiuscito" />
+    <br />
     <router-link v-bind:to="{ name: 'nuovoUtente' }"
       >Non sei registrato? Crea il tuo profilo!</router-link
     >

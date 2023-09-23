@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="aggiungiAlCarrello">
+    <button @click="aggiungiAlCarrello" :disabled="shoe.inventory === 0">
       <slot></slot>
     </button>
   </div>
@@ -10,9 +10,11 @@
 export default {
   methods: {
     aggiungiAlCarrello() {
-      // Chiama la mutazione per aggiungere la scarpa al carrello
-      this.$store.commit("AGGIUNGI_CARRELLO", this.shoe);
-      this.$store.commit("AGGIORNA_CONTEGGIO_CARRELLO");
+      if (this.shoe.inventory > 0) {
+        // Chiama la mutazione per aggiungere la scarpa al carrello
+        this.$store.commit("AGGIUNGI_CARRELLO", this.shoe);
+        this.$store.commit("AGGIORNA_CONTEGGIO_CARRELLO");
+      }
     },
   },
   props: {
