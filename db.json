@@ -2,10 +2,10 @@
   "utenti": [
     {
       "id": 1,
-      "nome": "Mario",
-      "cognome": "Rossi",
-      "eta": 78,
-      "email": "mario78@pippo.it"
+      "nome": "Letizia",
+      "cognome": "Mollo",
+      "eta": 23,
+      "email": "letizia.mollo24@gmail.com"
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
     },
     {
       "id": 3,
-      "nome": "chiara",
+      "nome": "Lorenzo",
       "cognome": "Di Domenico",
       "eta": 24,
       "email": "lorenzo.didomenico@edu.unito.it"
