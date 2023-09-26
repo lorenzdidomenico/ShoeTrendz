@@ -10,7 +10,7 @@
     </div>
     <nav>
       <router-link v-bind:to="{ name: 'indexView' }">Home</router-link> |
-      <router-link v-bind:to="{ name: 'shoes-list' }">Scarpe</router-link> |
+      <router-link v-bind:to="{ name: 'shoes-list' }">Prodotti</router-link> |
       <router-link v-bind:to="{ name: 'carrello' }"
         >Carrello ({{ carrello }})</router-link
       >
@@ -45,7 +45,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  background-color: #f6f6f6;
+  background-color: #82d0ef;
   padding-left: 10px;
   padding-right: 10px;
 }
