@@ -4,6 +4,7 @@
       v-for="card in $store.state.cards"
       :cardData="card"
       :key="card.id"
+      class="custom-card"
     ></SideCard>
   </div>
 </template>
@@ -21,13 +22,12 @@ export default {
 <style scoped>
 .sidebar {
   display: flex;
-  flex-direction: column; /* Imposta la direzione delle card in verticale */
-  align-items: flex-end; /* Allinea le card completamente a destra */
+  flex-direction: column;
+  align-items: flex-end;
 }
 
-/* Stili aggiuntivi per le card */
-/* Aggiungi margini superiori o inferiori alle card per separarle */
-.side-card {
+.custom-card {
+  width: 100%;
   margin-bottom: 10px;
 }
 </style>

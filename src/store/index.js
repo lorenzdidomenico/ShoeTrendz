@@ -95,21 +95,24 @@ export default createStore({
     cards: [
       {
         id: 1,
-        title: "Titolo#1",
-        image: "https://picsum.photos/200/100?random=3",
-        text: "survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing",
+        title: "Spedizione",
+        image:
+          "https://cdn.topnegozi.it/blog/wp-content/uploads/2020/05/migliori-siti-di-spedizione-online-1.png",
+        text: "I Member ShowTrendz usufruiscono automaticamente della spedizione standard gratuita per ogni ordine; è sufficiente che eseguano l'accesso prima dell'acquisto.",
       },
       {
         id: 2,
-        title: "Titolo#2",
-        image: "https://picsum.photos/200/100?random=12",
-        text: "survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing",
+        title: "Codici promozionali",
+        image:
+          "https://www.pngall.com/wp-content/uploads/2016/04/50-Off-Discount-PNG.png",
+        text: "Acquista i tuoi articoli preferiti a un prezzo inferiore con i codici promozionali ufficiali Nike. Scopri sconti e promozioni e trova gli articoli perfetti per dare il massimo.Solo come Member Nike puoi accedere a offerte esclusive, codici promozionali Nike e usufruire di consegna e resi gratuiti su ogni ordine.",
       },
       {
         id: 3,
-        title: "Titolo#3",
-        image: "https://picsum.photos/200/100?random=4",
-        text: "survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing",
+        title: "Sostenibilità",
+        image:
+          "https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/w_467,c_limit/dcd325e9-9bd2-4b67-a1bf-5f44efa03fb5/la-sostenibilit%C3%A0-di-nike-move-to-zero.png",
+        text: "Hai dei vecchi articoli inutilizzati da troppo tempo, messi in panchina declassati in serie B e relegati al passato? Potrebbero essere i protagonisti del nostro futuro",
       },
     ],
     carrello: 0,
