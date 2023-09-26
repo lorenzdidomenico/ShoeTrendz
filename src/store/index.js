@@ -98,7 +98,7 @@ export default createStore({
         title: "Spedizione",
         image:
           "https://cdn.topnegozi.it/blog/wp-content/uploads/2020/05/migliori-siti-di-spedizione-online-1.png",
-        text: "I Member ShowTrendz usufruiscono automaticamente della spedizione standard gratuita per ogni ordine; è sufficiente che eseguano l'accesso prima dell'acquisto.",
+        text: "I Member ShoeTrendz usufruiscono automaticamente della spedizione standard gratuita per ogni ordine; è sufficiente che eseguano l'accesso prima dell'acquisto.",
       },
       {
         id: 2,
