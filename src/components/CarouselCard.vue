@@ -1,58 +1,53 @@
 <template>
-  <div
-    id="carouselExampleIndicators"
-    class="carousel slide"
-    data-ride="carousel"
-  >
-    <ol class="carousel-indicators">
-      <li
-        data-target="#carouselExampleIndicators"
-        data-slide-to="0"
-        class="active"
-      ></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img
-          class="d-block w-100"
-          src="https://images1.the-dots.com/2027466/remoteccholg.jpeg?p=projectImageFullJpg"
-          alt="First slide"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          class="d-block w-100"
-          src="https://mir-s3-cdn-cf.behance.net/project_modules/source/d8da6361828393.5a7b2dbd0182f.jpg"
-          alt="Second slide"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          class="d-block w-100"
-          src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/833a4837327715.5bc8a05e65895.jpg"
-          alt="Third slide"
-        />
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6 offset-3">
+        <div id="mioCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://picsum.photos/600/200?random=1" class="d-block w-100" alt="Prima immagine" />
+            </div>
+            <!-- Altre immagini del carousel -->
+          </div>
+          <div class="carousel-indicators">
+            <!-- Indicatori del carousel -->
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#mioCarousel" data-bs-slide="prev">
+            <!-- Pulsante di navigazione precedente -->
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#mioCarousel" data-bs-slide="next">
+            <!-- Pulsante di navigazione successivo -->
+          </button>
+        </div>
       </div>
     </div>
-    <a
-      class="carousel-control-prev"
-      href="#carouselExampleIndicators"
-      role="button"
-      data-slide="prev"
-    >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a
-      class="carousel-control-next"
-      href="#carouselExampleIndicators"
-      role="button"
-      data-slide="next"
-    >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
   </div>
 </template>
+
+<script>
+export default {
+  mounted() {
+    console.log("content ready!");
+    let c = document.getElementById("mioCarousel");
+    c.setAttribute("data-bs-interval", 3000);
+    c.setAttribute("data-bs-pause", "hover");
+
+    c.addEventListener("slide.bs.carousel", () => {
+      console.log("transition start!");
+    });
+    c.addEventListener("slid.bs.carousel", () => {
+      console.log("transition stop!");
+    });
+  },
+};
+</script>
+
+<style scoped>
+.rosso {
+  background-color: red;
+}
+
+.verde {
+  background-color: green;
+}
+</style>

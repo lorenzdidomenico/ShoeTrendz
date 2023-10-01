@@ -10,4 +10,15 @@ module.exports = defineConfig({
       },
     },
   },
+  configureWebpack: {
+    resolve: {
+      modules: [
+        "node_modules", // Aggiungi 'node_modules' al percorso dei moduli
+      ],
+    },
+  },
 });
+
+module.exports = {
+  // ... altre configurazioni ...
+};
