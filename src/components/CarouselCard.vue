@@ -1,20 +1,20 @@
 <template>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
-      <div class="col-6 offset-3">
+      <div class="col-10"> 
         <div id="mioCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
               <img :src="require('@/assets/FirstSlide.jpg')" class="d-block w-100" alt="Prima immagine" />
-              <h3>Immagine 1</h3>
+              <h5 class="titolo">Unlimited You</h5>
             </div>
             <div class="carousel-item">
               <img :src="require('@/assets/SecondSlide.jpg')" class="d-block w-100" alt="Prima immagine" />
-              <h3>Immagine 2</h3>
+              <h5 class="titolo">Nike Hyperadapt</h5>
             </div>
             <div class="carousel-item">
               <img :src="require('@/assets/ThirdSlide.jpg')" class="d-block w-100" alt="Prima immagine" />
-              <h3>Immagine 3</h3>
+              <h5 class="titolo">Rise.Run.Rest.Repeat</h5>
             </div>
             <!-- Altre immagini del carousel -->
           </div>
@@ -58,6 +58,10 @@ export default {
 </script>
 
 <style>
+
+.titolo{
+  padding-top: 20px;
+}
 .rosso {
   background-color: red;
 }

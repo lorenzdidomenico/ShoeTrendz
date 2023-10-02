@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 style="text-align: center">SHOETRENDZ.COM</h1>
+    <h4 style="padding-bottom:20px">Homepage</h4>
 
     <!-- Includi il componente carosello qui -->
     <Carousel />
