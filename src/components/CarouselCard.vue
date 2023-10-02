@@ -5,22 +5,37 @@
         <div id="mioCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="https://picsum.photos/600/200?random=1" class="d-block w-100" alt="Prima immagine" />
+              <img :src="require('@/assets/FirstSlide.jpg')" class="d-block w-100" alt="Prima immagine" />
+              <h3>Immagine 1</h3>
+            </div>
+            <div class="carousel-item">
+              <img :src="require('@/assets/SecondSlide.jpg')" class="d-block w-100" alt="Prima immagine" />
+              <h3>Immagine 2</h3>
+            </div>
+            <div class="carousel-item">
+              <img :src="require('@/assets/ThirdSlide.jpg')" class="d-block w-100" alt="Prima immagine" />
+              <h3>Immagine 3</h3>
             </div>
             <!-- Altre immagini del carousel -->
           </div>
-          <div class="carousel-indicators">
-            <!-- Indicatori del carousel -->
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#mioCarousel" data-bs-slide="prev">
-            <!-- Pulsante di navigazione precedente -->
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#mioCarousel" data-bs-slide="next">
-            <!-- Pulsante di navigazione successivo -->
-          </button>
+          <button type="button" data-bs-target="#mioCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+            aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#mioCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#mioCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <!-- Indicatori del carousel -->
         </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#mioCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mioCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -42,7 +57,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .rosso {
   background-color: red;
 }
