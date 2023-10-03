@@ -3,17 +3,13 @@
     <div class="brand">
       <router-link v-bind:to="{ name: 'indexView' }">
         <img
-          src="https://w7.pngwing.com/pngs/24/849/png-transparent-nike-free-shoe-sneakers-nike-men-s-casual-shoes-mens-fashion-outdoor-shoe.png"
-        />
-        ShoeTrendz.com</router-link
-      >
+          src="https://w7.pngwing.com/pngs/24/849/png-transparent-nike-free-shoe-sneakers-nike-men-s-casual-shoes-mens-fashion-outdoor-shoe.png" />
+        ShoeTrendz.com</router-link>
     </div>
     <nav>
       <router-link v-bind:to="{ name: 'indexView' }">Home</router-link> |
       <router-link v-bind:to="{ name: 'shoes-list' }">Prodotti</router-link> |
-      <router-link v-bind:to="{ name: 'carrello' }"
-        >Carrello ({{ carrello }})</router-link
-      >
+      <router-link v-bind:to="{ name: 'carrello' }">Carrello ({{ carrello }})</router-link>
       &nbsp; <button @click="svuotaCarrello">Svuota</button> &nbsp; | Modelli
       scarpe disponibili: {{ numeroScarpe }} |
       <router-link v-bind:to="{ name: 'utente' }">Utente</router-link>
@@ -45,7 +41,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  background-color: #82d0ef;
+  background-color: #0cadbe;
   padding-left: 10px;
   padding-right: 10px;
 }

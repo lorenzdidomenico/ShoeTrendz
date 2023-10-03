@@ -1,15 +1,8 @@
 <template>
   <div>
     <div class="shoe-card -shadow">
-      <router-link
-        class="shoe-link"
-        v-bind:to="{ name: 'shoes-details', params: { id: shoe.id } }"
-      >
-        <img
-          v-bind:src="shoe.image_url"
-          alt="Immagine delle scarpe"
-          class="img-fluid"
-        />
+      <router-link class="shoe-link" v-bind:to="{ name: 'shoes-details', params: { id: shoe.id } }">
+        <img v-bind:src="shoe.image_url" alt="Immagine delle scarpe" class="img-fluid" />
         <h4 class="title">{{ shoe.product }}</h4>
         <p v-if="shoe.inventory >= 10">Disponibile</p>
         <p v-else-if="shoe.inventory < 10 && shoe.inventory >= 1">
@@ -42,6 +35,7 @@ export default {
   margin-bottom: 24px;
   transition: all 0.2s linear;
   cursor: pointer;
+  background-color: #FFFFFC;
 }
 
 .shoe-card:hover {
@@ -49,7 +43,7 @@ export default {
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19);
 }
 
-.shoe-card > .title {
+.shoe-card>.title {
   margin: 0;
 }
 
