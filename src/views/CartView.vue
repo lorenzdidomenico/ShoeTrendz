@@ -13,11 +13,30 @@
     <p v-if="scarpeNelCarrello.length === 0">
       Nessun prodotto aggiunto al carrello
     </p>
-    <hr v-if="scarpeNelCarrello.length > 0" />
-    <!-- Mostra l'ammontare totale del carrello -->
-    <p v-if="scarpeNelCarrello.length > 0" style="text-align: right">
-      <strong>Totale:</strong> {{ calcolaTotaleCarrello() }} €
+    <hr v-if="scarpeNelCarrello.length > 0" class="total-amount" />
+
+    <!-- Mostra il totale iniziale -->
+    <p style="text-align: right">
+      <strong>Totale:</strong> {{ totaleSenzaSpedizione }} €
     </p>
+
+    <!-- Mostra il pulsante "Calcola Totale" solo se non è stato calcolato il totale con spedizione -->
+    <button v-if="!mostraTotaleConSpedizione" @click="calcolaTotale" class="checkout-button">Calcola Totale</button>
+
+    <!-- Mostra il totale con spedizione solo se è stato calcolato -->
+    <p v-if="mostraTotaleConSpedizione" style="text-align: right">
+      <strong>Totale con spedizione:</strong> {{ totaleConSpedizione }} €
+    </p>
+
+    <!-- Mostra il pulsante "Checkout" solo se è stato calcolato il totale con spedizione -->
+    <button v-if="mostraTotaleConSpedizione" @click="avviaCheckout" class="checkout-button">Checkout</button>
+
+
+    <h3>Hai un codice sconto?</h3>
+    <input v-model="codiceSconto" placeholder="Inserisci il codice sconto" />
+    <button @click="applicaSconto" class="sconto-button">Applica Sconto</button>
+
+
   </div>
 </template>
 
@@ -25,6 +44,15 @@
 import { mapGetters } from "vuex";
 
 export default {
+  data() {
+    return {
+      costoSpedizione: 5, // Imposta il costo della spedizione desiderato
+      totaleSenzaSpedizione: 0,
+      totaleConSpedizione: 0,
+      mostraTotaleConSpedizione: false,
+      codiceSconto: "",
+    };
+  },
   computed: {
     ...mapGetters(["scarpeNelCarrello"]),
   },
@@ -39,8 +67,70 @@ export default {
       });
       return totale;
     },
+    calcolaTotale() {
+      // Calcola il totale senza spedizione
+      this.totaleSenzaSpedizione = this.calcolaTotaleCarrello();
+
+      // Mostra il totale con il costo di spedizione
+      this.totaleConSpedizione = this.totaleSenzaSpedizione + this.costoSpedizione;
+
+      // Ora hai il totale con il costo di spedizione disponibile
+      this.mostraTotaleConSpedizione = true;
+    },
+    avviaCheckout() {
+      // Puoi eseguire la logica del checkout qui se necessario
+
+      // Calcola il totale senza spedizione
+
+    },
+    applicaSconto() {
+      // Verifica se il codice sconto inserito è corretto (puoi utilizzare un codice fisso o un sistema più avanzato)
+      if (this.codiceSconto === "LORENZO50") {
+        // Calcola il totale con lo sconto del 50%
+        this.totaleConSpedizione = this.totaleConSpedizione * 0.5;
+      } else {
+        // Il codice sconto non è valido, puoi gestire un messaggio di errore o altra logica qui
+        console.log("Codice sconto non valido");
+      }
+    },
   },
 };
+
+
+
 </script>
 
-<style scoped></style>
+<style>
+.total-amount {
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+
+  /* Aggiungi una transizione al cambio di colore */
+}
+
+.checkout-button {
+  background-color: #007bff;
+  /* Colore di sfondo */
+  color: #fff;
+  /* Colore del testo */
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  float: right;
+}
+
+.checkout-button:hover {
+  background-color: #0056b3;
+  /* Colore di sfondo al passaggio del mouse */
+}
+
+.sconto-button {
+  background-color: #5dc746;
+
+
+}
+</style>
+
