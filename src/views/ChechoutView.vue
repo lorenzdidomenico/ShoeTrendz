@@ -1,84 +1,99 @@
 <template>
-  <div>
-    <div v-if="mostraFormUtenteRegistrato">
-      <!-- Form per utenti registrati -->
+    <div>
       <h1>Checkout</h1>
       <br />
-      <h2>Continua come utente registrato</h2>
-      <LoginForm @accessoRiuscito="gestisciAccessoRiuscito" /> <br />
-      <span
-        @click="mostraFormUtenteRegistrato = false"
-        style="text-decoration: underline; cursor: pointer"
+      <div v-if="mostraFormUtenteRegistrato">
+        <!-- Form per utenti registrati -->
+        <h2>Continua come utente registrato</h2>
+        <LoginForm @accessoRiuscito="gestisciAccessoRiuscito" />
+        <br />
+        <span
+          @click="mostraFormUtenteRegistrato = false"
+          style="text-decoration: underline; cursor: pointer"
         >Continua come ospite</span
-      >
+        >
+      </div>
+      <div v-else>
+        <!-- Form per ospiti -->
+        <h2>Continua come ospite</h2>
+        <FormOspiti @accessoOspite="gestisciAccessoOspite" :disabilitaForm="mostraDatiOspite" />
+        <br />
+  
+        <!-- Bottone "Vai al riepilogo" -->
+        <div class="d-flex justify-content-end mt-4">
+          <button @click="vaiAlRiepilogo" class="btn btn-success">
+            Vai al riepilogo
+          </button>
+        </div>
+  
+        <!-- Visualizza il nome e il cognome dell'ospite solo se mostraDatiOspite è true -->
+        <div v-if="mostraDatiOspite">
+          <h2>Riepilogo ordine</h2>
+          <p>Nome utente ospite: {{ ospite.nome }}</p>
+          <p>Cognome utente ospite: {{ ospite.cognome }}</p>
+          <p>Email utente ospite: {{ ospite.email }}</p>
+          <p>Indirizzo di spedizione: {{ ospite.indirizzo }}</p>
+          <p>Numero di cellulare: {{ ospite.telefono }}</p>
+  
+          <!-- Visualizza le scarpe nel carrello -->
+          <h2>Scarpe nel carrello:</h2>
+          <ul>
+            <li v-for="(scarpa, index) in scarpeNelCarrello" :key="index">
+              {{ scarpa.product }} - {{ scarpa.price }} €
+            </li>
+          </ul>
+          <p style="text-align: right;"><strong> Totale del carrello: </strong> {{ totaleCarrello }} €</p>
+        </div>
+      </div>
     </div>
-    <div v-else>
-      <!-- Form per ospiti -->
-      <h1>Checkout</h1>
-      <br />
-      <h2>Continua come ospite</h2>
-      <FormOspiti @accessoOspite="gestisciAccessoOspite" /> <br />
-      <span
-        @click="mostraFormUtenteRegistrato = true"
-        style="text-decoration: underline; cursor: pointer"
-        >Continua come utente registrato</span
-      >
-    </div>
-
-    <!-- Bottone "Vai al epilogo" -->
-    <div class="d-flex justify-content-end mt-4">
-      <button @click="vaiAlEpilogo" class="btn btn-success">
-        Vai al epilogo
-      </button>
-    </div>
-
-    <!-- Nome e cognome dell'utente -->
-    <div v-if="utenteLoggato" class="mt-3 text-right">
-      <p>Nome: {{ utenteLoggato.nome }}</p>
-      <p>Cognome: {{ utenteLoggato.cognome }}</p>
-    </div>
-  </div>
-</template>
-
-<script>
-import LoginForm from "@/components/LoginForm.vue";
-import FormOspiti from "@/components/FormOspiti.vue";
-
-export default {
-  components: {
-    LoginForm,
-    FormOspiti,
-  },
-  data() {
-    return {
-      mostraFormUtenteRegistrato: true,
-      utenteLoggato: null, // Inizialmente, nessun utente è loggato
-    };
-  },
-  methods: {
-    gestisciAccessoRiuscito(utente) {
-      // Callback chiamato quando l'accesso come utente registrato ha successo
-      this.utenteLoggato = utente;
-      alert("Accesso riuscito!");
+  </template>
+  
+  <script>
+  import LoginForm from "@/components/LoginForm.vue";
+  import FormOspiti from "@/components/FormOspiti.vue";
+  import { mapGetters } from "vuex";
+  
+  export default {
+    components: {
+      LoginForm,
+      FormOspiti,
     },
-    gestisciAccessoOspite() {
-      // Callback chiamato quando l'accesso come ospite ha successo
-      this.utenteLoggato = null; // Resetta l'utenteLoggato quando si accede come ospite
-      alert("Accesso come ospite riuscito!");
+    data() {
+      return {
+        mostraFormUtenteRegistrato: true,
+        ospite: {
+          nome: "",
+          cognome: "",
+          email: "",
+          indirizzo: "",
+          telefono: "",
+        },
+        mostraDatiOspite: false,
+      };
     },
-    vaiAlEpilogo() {
-      if (this.utenteLoggato) {
-        // Se un utente è loggato, stampa il nome e il cognome
-        alert(
-          `Nome: ${this.utenteLoggato.nome}\nCognome: ${this.utenteLoggato.cognome}`
-        );
-      } else {
-        // Altrimenti, gestisci il caso in cui nessun utente è loggato
-        alert("Nessun utente loggato.");
+    computed: {
+  ...mapGetters(["scarpeNelCarrello"]),
+  totaleCarrello() {
+    let totale = 0;
+    this.scarpeNelCarrello.forEach((scarpa) => {
+      if (scarpa && scarpa.price) {
+        totale += scarpa.price;
       }
-    },
+    });
+    totale += 5;
+    return totale;
   },
-};
-</script>
-
-<style scoped></style>
+},
+    methods: {
+      gestisciAccessoOspite(datiOspite) {
+        this.ospite = datiOspite;
+      },
+      vaiAlRiepilogo() {
+        // Aggiungi il codice per passare ai dettagli del riepilogo qui, se necessario.
+        // Imposta la variabile per mostrare il nome e il cognome
+        this.mostraDatiOspite = true;
+      },
+    },
+  };
+  </script>
+  

@@ -1,5 +1,3 @@
-<!-- FormOspiti.vue -->
-
 <template>
   <form @submit.prevent="inviaFormOspite" class="mt-4">
     <div class="form-group row">
@@ -11,6 +9,7 @@
           v-model="nome"
           required
           class="form-control"
+          :disabled="disabilitaForm"
         />
       </div>
     </div>
@@ -25,6 +24,7 @@
           v-model="cognome"
           required
           class="form-control"
+          :disabled="disabilitaForm"
         />
       </div>
     </div>
@@ -39,15 +39,14 @@
           v-model="email"
           required
           class="form-control"
+          :disabled="disabilitaForm"
         />
       </div>
     </div>
     <br />
 
     <div class="form-group row">
-      <label for="indirizzo" class="col-sm-3 col-form-label"
-        >Indirizzo di Spedizione:</label
-      >
+      <label for="indirizzo" class="col-sm-3 col-form-label">Indirizzo di Spedizione:</label>
       <div class="col-sm-9">
         <input
           type="text"
@@ -55,15 +54,14 @@
           v-model="indirizzo"
           required
           class="form-control"
+          :disabled="disabilitaForm"
         />
       </div>
     </div>
     <br />
 
     <div class="form-group row">
-      <label for="telefono" class="col-sm-3 col-form-label"
-        >Numero di Telefono:</label
-      >
+      <label for="telefono" class="col-sm-3 col-form-label">Numero di Telefono:</label>
       <div class="col-sm-9">
         <input
           type="text"
@@ -71,19 +69,23 @@
           v-model="telefono"
           required
           class="form-control"
+          :disabled="disabilitaForm"
         />
       </div>
     </div>
     <br />
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary">Invia</button>
+      <button type="submit" class="btn btn-primary" :disabled="disabilitaForm">Invia</button>
     </div>
   </form>
 </template>
 
 <script>
 export default {
+  props: {
+    disabilitaForm: Boolean,
+  },
   data() {
     return {
       nome: "",
@@ -95,11 +97,18 @@ export default {
   },
   methods: {
     async inviaFormOspite() {
-      // Gestisci l'invio del form per gli ospiti qui
-      alert("Form per gli ospiti inviato con successo!");
+      this.$emit("accessoOspite", {
+        nome: this.nome,
+        cognome: this.cognome,
+        email: this.email,
+        indirizzo: this.indirizzo,
+        telefono: this.telefono,
+      });
+      alert("Dati inviati correttamente");
     },
   },
 };
 </script>
 
 <style scoped></style>
+
