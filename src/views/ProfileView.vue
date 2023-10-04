@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>Profilo utente</h1>
+    <h1>Profilo utente</h1> <br>
+    <h2>Accedi</h2>
 
     <!-- Mostra il form di accesso -->
     <LoginForm @accessoRiuscito="gestisciAccessoRiuscito" />

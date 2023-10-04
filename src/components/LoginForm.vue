@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h2>Accesso</h2>
     <form @submit.prevent="effettuaAccesso">
       <div class="form-group row">
         <label for="nome" class="col-sm-3 col-form-label">Nome:</label>

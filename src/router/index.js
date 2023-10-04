@@ -5,6 +5,7 @@ import CartView from "../views/CartView.vue";
 import ProfileView from "../views/ProfileView.vue";
 import CreateProfile from "../views/CreateProfile.vue";
 import indexView from "../views/indexView.vue";
+import ChechOut from "../views/ChechoutView.vue";
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
     path: "/index",
     name: "indexView",
     component: indexView,
+  },
+  {
+    path: "/chechOut",
+    name: "chechOut",
+    component: ChechOut,
   },
 ];
 

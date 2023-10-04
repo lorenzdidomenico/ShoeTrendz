@@ -35,13 +35,13 @@
     </p>
 
     <!-- Mostra il pulsante "Checkout" solo se è stato calcolato il totale con spedizione -->
-    <button
+    <router-link v-bind:to="{ name: 'chechOut'}"><button
       v-if="mostraTotaleConSpedizione"
       @click="avviaCheckout"
       class="checkout-button"
     >
       Checkout
-    </button>
+    </button> </router-link>
 
     <h3>Hai un codice sconto?</h3>
     <input v-model="codiceSconto" placeholder="Inserisci il codice sconto" />
