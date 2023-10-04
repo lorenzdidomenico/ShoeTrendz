@@ -21,7 +21,13 @@
     </p>
 
     <!-- Mostra il pulsante "Calcola Totale" solo se non è stato calcolato il totale con spedizione -->
-    <button v-if="!mostraTotaleConSpedizione" @click="calcolaTotale" class="checkout-button">Calcola Totale</button>
+    <button
+      v-if="!mostraTotaleConSpedizione"
+      @click="calcolaTotale"
+      class="checkout-button"
+    >
+      Calcola Totale
+    </button>
 
     <!-- Mostra il totale con spedizione solo se è stato calcolato -->
     <p v-if="mostraTotaleConSpedizione" style="text-align: right">
@@ -29,14 +35,17 @@
     </p>
 
     <!-- Mostra il pulsante "Checkout" solo se è stato calcolato il totale con spedizione -->
-    <button v-if="mostraTotaleConSpedizione" @click="avviaCheckout" class="checkout-button">Checkout</button>
-
+    <button
+      v-if="mostraTotaleConSpedizione"
+      @click="avviaCheckout"
+      class="checkout-button"
+    >
+      Checkout
+    </button>
 
     <h3>Hai un codice sconto?</h3>
     <input v-model="codiceSconto" placeholder="Inserisci il codice sconto" />
     <button @click="applicaSconto" class="sconto-button">Applica Sconto</button>
-
-
   </div>
 </template>
 
@@ -51,6 +60,7 @@ export default {
       totaleConSpedizione: 0,
       mostraTotaleConSpedizione: false,
       codiceSconto: "",
+      scontoRiscattato: false,
     };
   },
   computed: {
@@ -84,20 +94,21 @@ export default {
 
     },
     applicaSconto() {
-      // Verifica se il codice sconto inserito è corretto (puoi utilizzare un codice fisso o un sistema più avanzato)
-      if (this.codiceSconto === "LORENZO50") {
-        // Calcola il totale con lo sconto del 50%
-        this.totaleConSpedizione = this.totaleConSpedizione * 0.5;
-      } else {
-        // Il codice sconto non è valido, puoi gestire un messaggio di errore o altra logica qui
-        console.log("Codice sconto non valido");
-      }
-    },
+  if (!this.scontoRiscattato) {
+    if (this.codiceSconto === "LORENZO50") {
+      this.totaleConSpedizione = this.totaleConSpedizione * 0.5;
+      this.scontoRiscattato = true;
+      alert("Codice sconto riscattato correttamente!");
+    } else {
+      alert("Codice sconto non valido");
+    }
+  } else {
+    alert("Il codice sconto è stato già riscattato.");
+  }
+},
+
   },
 };
-
-
-
 </script>
 
 <style>
@@ -129,8 +140,5 @@ export default {
 
 .sconto-button {
   background-color: #5dc746;
-
-
 }
 </style>
-
