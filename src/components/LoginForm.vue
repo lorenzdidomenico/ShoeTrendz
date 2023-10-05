@@ -10,6 +10,7 @@
             v-model="nome"
             required
             class="form-control"
+            :disabled="mostraDatiUtenteRegistrato"
           />
         </div>
       </div>
@@ -23,6 +24,7 @@
             v-model="cognome"
             required
             class="form-control"
+            :disabled="mostraDatiUtenteRegistrato"
           />
         </div>
       </div>
@@ -36,6 +38,7 @@
             v-model="email"
             required
             class="form-control"
+            :disabled="mostraDatiUtenteRegistrato"
           />
         </div>
       </div>
@@ -51,6 +54,9 @@
 import axios from "axios";
 
 export default {
+  props: {
+    mostraDatiUtenteRegistrato: Boolean,
+  },
   data() {
     return {
       nome: "",
@@ -66,7 +72,7 @@ export default {
         const utenti = response.data;
 
         // Verifica se esiste un utente con le credenziali inserite
-        const utenteTrovato = utenti.some(
+        const utenteTrovato = utenti.find(
           (utente) =>
             this.nome === utente.nome &&
             this.cognome === utente.cognome &&
@@ -74,7 +80,8 @@ export default {
         );
 
         if (utenteTrovato) {
-          // Esegui azioni per l'accesso riuscito
+          // Emetti un evento con i dati dell'utente registrato
+          this.$emit("accessoRiuscito", utenteTrovato);
           alert("Accesso riuscito!");
         } else {
           // Esegui azioni per l'accesso non riuscito
