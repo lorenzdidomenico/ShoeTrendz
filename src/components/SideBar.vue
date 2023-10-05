@@ -30,4 +30,11 @@ export default {
   width: 100%;
   margin-bottom: 10px;
 }
+
+@media screen and (max-width: 992px) {
+  .sidebar {
+    display: none; /* Nascondi la barra laterale sotto i 992px */
+  }
+}
+
 </style>

@@ -1,24 +1,34 @@
 <template>
-  <div id="nav" class="nav">
+  <div id="nav" class="nav navbar navbar-expand-lg">
     <div class="brand">
       <router-link v-bind:to="{ name: 'indexView' }">
-        <img
-          src="https://w7.pngwing.com/pngs/24/849/png-transparent-nike-free-shoe-sneakers-nike-men-s-casual-shoes-mens-fashion-outdoor-shoe.png" />
-        ShoeTrendz.com</router-link>
+        <img src="https://w7.pngwing.com/pngs/24/849/png-transparent-nike-free-shoe-sneakers-nike-men-s-casual-shoes-mens-fashion-outdoor-shoe.png" />
+        ShoeTrendz.com
+      </router-link>
     </div>
-    <nav>
-      <router-link v-bind:to="{ name: 'indexView' }">Home</router-link> |
-      <router-link v-bind:to="{ name: 'shoes-list' }">Prodotti</router-link> |
-      <router-link v-bind:to="{ name: 'carrello' }">Carrello ({{ carrello }})</router-link>
-      &nbsp; <button @click="svuotaCarrello">Svuota</button> &nbsp; | Modelli
-      scarpe disponibili: {{ numeroScarpe }} |
-      <router-link v-bind:to="{ name: 'utente' }">Utente</router-link>
-    </nav>
+    <button class="navbar-toggler" type="button" @click="toggleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse ms-auto flex-column" :class="{ 'show': isNavbarOpen }" id="navbarNav">
+      <nav class="navigazione">
+        <router-link v-bind:to="{ name: 'indexView' }">Home</router-link> |
+        <router-link v-bind:to="{ name: 'shoes-list' }">Prodotti</router-link> |
+        <router-link v-bind:to="{ name: 'carrello' }">Carrello ({{ carrello }})</router-link>
+        &nbsp;<button @click="svuotaCarrello">Svuota</button>&nbsp; |
+        Modelli scarpe disponibili: {{ numeroScarpe }} |
+        <router-link v-bind:to="{ name: 'utente' }">Utente</router-link>
+      </nav>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      isNavbarOpen: false,
+    };
+  },
   computed: {
     carrello: function () {
       return this.$store.state.carrello;
@@ -30,6 +40,9 @@ export default {
   methods: {
     svuotaCarrello: function () {
       this.$store.commit("SVUOTA_CARRELLO");
+    },
+    toggleNavbar() {
+      this.isNavbarOpen = !this.isNavbarOpen;
     },
   },
 };
@@ -78,4 +91,19 @@ export default {
 .nav a {
   color: black;
 }
+
+@media screen and (max-width: 992px) {
+  .navigazione {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20x;
+    background-color: #82d0ef
+    }
+
+    .navigazione router-link::after {
+      content: none; /* Nascondi il testo "|" vicino alle voci del menu */
+    }
+  }
+  
 </style>
