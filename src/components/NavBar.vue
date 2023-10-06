@@ -1,8 +1,9 @@
 <template>
-  <div id="nav" class="nav navbar navbar-expand-lg">
+  <div id="nav" class="nav navbar navbar-expand-lg" :style="{ height: isNavbarOpen ? 'auto' : '60px' }">
     <div class="brand">
       <router-link v-bind:to="{ name: 'indexView' }">
-        <img src="https://w7.pngwing.com/pngs/24/849/png-transparent-nike-free-shoe-sneakers-nike-men-s-casual-shoes-mens-fashion-outdoor-shoe.png" />
+        <img
+          src="https://w7.pngwing.com/pngs/24/849/png-transparent-nike-free-shoe-sneakers-nike-men-s-casual-shoes-mens-fashion-outdoor-shoe.png" />
         ShoeTrendz.com
       </router-link>
     </div>
@@ -97,13 +98,13 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20x;
-    background-color: #82d0ef
-    }
-
-    .navigazione router-link::after {
-      content: none; /* Nascondi il testo "|" vicino alle voci del menu */
-    }
+    padding: 20px;
+    background-color: #0cadbe
   }
-  
+
+  .navigazione router-link::after {
+    content: none;
+    /* Nascondi il testo "|" vicino alle voci del menu */
+  }
+}
 </style>

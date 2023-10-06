@@ -3,7 +3,7 @@
     <h4 style="padding-bottom:20px">Homepage</h4>
 
     <!-- Includi il componente carosello qui -->
-    <Carousel />
+    <Carousel class="carosello" />
 
     <!-- Aggiungi FasciaOrizzontale nella tua vista -->
     <HorizontalBand titolo="CREA IL TUO STILE CON SHOETRENDZ:" sottotitolo="dove la moda incontra la comodità!"
@@ -26,5 +26,26 @@ export default {
 </script>
 
 <style>
+.carosello {
+  align-items: center;
+
+}
+
+.carosello,
+.horizontal-band {
+  margin-top: 0;
+  /* Imposta il margine superiore desiderato per il contenuto */
+  transition: margin-top 0.3s ease;
+  /* Aggiungi una transizione per un effetto di scorrimento fluido */
+}
+
+/* Riduci il margine superiore del contenuto quando il menu è aperto */
+.nav.navbar-expand-lg.show+.carosello,
+.nav.navbar-expand-lg.show+.horizontal-band {
+  margin-top:
+    /* Altezza del menu quando è aperto */
+    60px;
+}
+
 /* Stili globali o specifici per questa vista */
 </style>
