@@ -21,11 +21,7 @@
     </p>
 
     <!-- Mostra il pulsante "Calcola Totale" solo se non è stato calcolato il totale con spedizione -->
-    <button
-      v-if="!mostraTotaleConSpedizione"
-      @click="calcolaTotale"
-      class="checkout-button"
-    >
+    <button v-if="!mostraTotaleConSpedizione" @click="calcolaTotale" class="checkout-button">
       Calcola Totale
     </button>
 
@@ -35,17 +31,12 @@
     </p>
 
     <!-- Mostra il pulsante "Checkout" solo se è stato calcolato il totale con spedizione -->
-    <router-link v-bind:to="{ name: 'chechOut'}"><button
-      v-if="mostraTotaleConSpedizione"
-      @click="avviaCheckout"
-      class="checkout-button"
-    >
-      Checkout
-    </button> </router-link>
+    <router-link v-bind:to="{ name: 'chechOut' }"><button v-if="mostraTotaleConSpedizione" @click="avviaCheckout"
+        class="checkout-button">
+        Checkout
+      </button> </router-link>
 
-    <h3>Hai un codice sconto?</h3>
-    <input v-model="codiceSconto" placeholder="Inserisci il codice sconto" />
-    <button @click="applicaSconto" class="sconto-button">Applica Sconto</button>
+
   </div>
 </template>
 
@@ -93,19 +84,7 @@ export default {
       // Calcola il totale senza spedizione
 
     },
-    applicaSconto() {
-  if (!this.scontoRiscattato) {
-    if (this.codiceSconto === "LORENZO50") {
-      this.totaleConSpedizione = this.totaleConSpedizione * 0.5;
-      this.scontoRiscattato = true;
-      alert("Codice sconto riscattato correttamente!");
-    } else {
-      alert("Codice sconto non valido");
-    }
-  } else {
-    alert("Il codice sconto è stato già riscattato.");
-  }
-},
+
 
   },
 };
@@ -136,9 +115,5 @@ export default {
 .checkout-button:hover {
   background-color: #0056b3;
   /* Colore di sfondo al passaggio del mouse */
-}
-
-.sconto-button {
-  background-color: #5dc746;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-10"> 
+      <div class="col-10">
         <div id="mioCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -58,10 +58,10 @@ export default {
 </script>
 
 <style>
-
-.titolo{
+.titolo {
   padding-top: 20px;
 }
+
 .rosso {
   background-color: red;
 }
@@ -69,4 +69,38 @@ export default {
 .verde {
   background-color: green;
 }
-</style>
+
+
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 1;
+  /* Imposta un valore di z-index superiore rispetto al carosello */
+
+}
+
+#mioCarousel {
+  position: relative;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  /* Posiziona le frecce verticalmente al centro rispetto al carosello genitore */
+  transform: translateY(-50%);
+  /* Corregge la posizione verticale per centrare le frecce */
+  width: 10%;
+  /* Imposta la larghezza desiderata delle frecce */
+  height: 100%;
+  /* Imposta l'altezza al 100% per coprire completamente l'altezza del carosello */
+}
+
+.carousel-control-prev {
+  left: 0;
+  /* Posiziona la freccia sinistra al bordo sinistro del carosello */
+}
+
+.carousel-control-next {
+  right: 0;
+  /* Posiziona la freccia destra al bordo destro del carosello */
+}</style>
