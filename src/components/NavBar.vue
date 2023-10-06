@@ -15,7 +15,7 @@
         <router-link v-bind:to="{ name: 'indexView' }">Home</router-link> |
         <router-link v-bind:to="{ name: 'shoes-list' }">Prodotti</router-link> |
         <router-link v-bind:to="{ name: 'carrello' }">Carrello ({{ carrello }})</router-link>
-        &nbsp;<button @click="svuotaCarrello">Svuota</button>&nbsp; |
+        &nbsp;<button @click="svuotaCarrello" class="Svuota-button">Svuota </button>&nbsp; |
         Modelli scarpe disponibili: {{ numeroScarpe }} |
         <router-link v-bind:to="{ name: 'utente' }">Utente</router-link>
       </nav>
@@ -93,6 +93,26 @@ export default {
   color: black;
 }
 
+.Svuota-button {
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #ffffff;
+  /* Colore di sfondo del pulsante (verde in questo caso) */
+  color: #000000;
+  /* Colore del testo del pulsante (bianco in questo caso) */
+  border: none;
+  /* Rimuovi il bordo del pulsante */
+  border-radius: 10px;
+  /* Bordo arrotondato del pulsante */
+}
+
+.Svuota-button:hover {
+  background-color: black;
+  color: #ffffff;
+  /* Colore di sfondo al passaggio del mouse */
+}
+
 @media screen and (max-width: 992px) {
   .navigazione {
     display: flex;
@@ -106,5 +126,7 @@ export default {
     content: none;
     /* Nascondi il testo "|" vicino alle voci del menu */
   }
+
+
 }
 </style>

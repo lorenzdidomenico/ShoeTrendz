@@ -3,7 +3,9 @@
     <h4 style="padding-bottom:20px">Homepage</h4>
 
     <!-- Includi il componente carosello qui -->
-    <Carousel class="carosello" />
+    <div class="carosello">
+      <Carousel class="carousel" />
+    </div>
 
     <!-- Aggiungi FasciaOrizzontale nella tua vista -->
     <HorizontalBand titolo="CREA IL TUO STILE CON SHOETRENDZ:" sottotitolo="dove la moda incontra la comodità!"
@@ -28,7 +30,8 @@ export default {
 <style>
 .carosello {
   align-items: center;
-
+  margin-top: 0;
+  transition: margin-top 0.3s ease;
 }
 
 .carosello,

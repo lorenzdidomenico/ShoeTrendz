@@ -57,7 +57,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .titolo {
   padding-top: 20px;
 }
@@ -70,16 +70,21 @@ export default {
   background-color: green;
 }
 
-
-.carousel-control-prev,
-.carousel-control-next {
-  z-index: 1;
-  /* Imposta un valore di z-index superiore rispetto al carosello */
-
+.carousel-item img {
+  margin: 0;
+  /* Imposta il margin a zero per l'immagine */
+  width: 100%;
+  /* Assicura che l'immagine copra completamente lo spazio disponibile in larghezza */
+  object-fit: cover;
+  /* Ridimensiona l'immagine in modo da coprire completamente il contenitore */
 }
 
+
 #mioCarousel {
-  position: relative;
+  width: 100%;
+  /* Imposta la larghezza al 100% */
+  margin: 0;
+
 }
 
 .carousel-control-prev,
@@ -93,6 +98,8 @@ export default {
   /* Imposta la larghezza desiderata delle frecce */
   height: 100%;
   /* Imposta l'altezza al 100% per coprire completamente l'altezza del carosello */
+  z-index: 1;
+  /* Imposta un valore di z-index superiore rispetto al carosello */
 }
 
 .carousel-control-prev {
@@ -103,4 +110,5 @@ export default {
 .carousel-control-next {
   right: 0;
   /* Posiziona la freccia destra al bordo destro del carosello */
-}</style>
+}
+</style>
