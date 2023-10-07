@@ -13,16 +13,26 @@
     </button>
     <div class="collapse navbar-collapse ms-auto flex-column" :class="{ 'show': isNavbarOpen }" id="navbarNav">
       <nav class="navigazione">
-        <router-link v-bind:to="{ name: 'indexView' }">Novità e tendenze</router-link> |
-        <router-link v-bind:to="{ name: 'shoes-list' }">Prodotti</router-link> |
-        Modelli scarpe disponibili: {{ numeroScarpe }} |
-        <router-link v-bind:to="{ name: 'utente' }">
-          <img src="@/assets/UserIcon.png" alt="Utente" class="User-icon" /></router-link> |
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <router-link class="nav-link" v-bind:to="{ name: 'indexView' }">Novità e tendenze</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" v-bind:to="{ name: 'shoes-list' }">Prodotti</router-link>
+          </li>
 
-        <router-link v-bind:to="{ name: 'carrello' }" class="linea">
-          <img src="@/assets/BagIcon.png" alt="Carrello" class="carrello-icon" /> ({{ carrello }})
-        </router-link>
-        &nbsp;<button @click="svuotaCarrello" class="Svuota-button">Svuota </button>&nbsp;
+          <li class="nav-item">
+            <router-link class="nav-link" v-bind:to="{ name: 'utente' }">
+              <img src="@/assets/UserIcon.png" alt="Utente" class="User-icon" />
+            </router-link>
+          </li>
+          <li class="nav-item linea">
+            <router-link class="nav-link" v-bind:to="{ name: 'carrello' }">
+              <img src="@/assets/BagIcon.png" alt="Carrello" class="carrello-icon" /> ({{ carrello }})
+            </router-link>
+          </li>
+          <button @click="svuotaCarrello" class="Svuota-button">Svuota</button>
+        </ul>
       </nav>
     </div>
   </div>
@@ -55,6 +65,10 @@ export default {
 </script>
 
 <style scoped>
+.navigazione {
+  margin-bottom: 15px;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -84,9 +98,17 @@ export default {
 
 .nav .nav-item {
   box-sizing: border-box;
-  margin: 0 5px;
+  margin-top: 20px;
   color: rgba(0, 0, 0, 0.5);
   text-decoration: none;
+  font-size: medium;
+
+}
+
+.nav .nav-item:hover a.nav-link {
+  color: #ffffff;
+  font-size: 300;
+  font-weight: bold;
 }
 
 .nav .nav-item.router-link-exact-active {
@@ -99,24 +121,27 @@ export default {
 }
 
 .Svuota-button {
-  padding: 5px 10px;
+  padding: 10px 10px;
   font-size: 16px;
   cursor: pointer;
-  background-color: #ffffff;
+  background-color: #000000;
   /* Colore di sfondo del pulsante (verde in questo caso) */
-  color: #000000;
+  color: white;
   /* Colore del testo del pulsante (bianco in questo caso) */
   border: none;
   /* Rimuovi il bordo del pulsante */
-  border-radius: 10px;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
   /* Bordo arrotondato del pulsante */
 }
 
 .Svuota-button:hover {
-  background-color: black;
-  color: #ffffff;
+  background-color: white;
+  color: #000000;
   /* Colore di sfondo al passaggio del mouse */
 }
+
 
 .linea {
   text-decoration: none;
