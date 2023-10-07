@@ -2,17 +2,17 @@
   <div id="nav" class="nav navbar navbar-expand-lg" :style="{ height: isNavbarOpen ? 'auto' : '60px' }">
     <div class="brand">
       <router-link v-bind:to="{ name: 'indexView' }">
-        <img
-          src="https://w7.pngwing.com/pngs/24/849/png-transparent-nike-free-shoe-sneakers-nike-men-s-casual-shoes-mens-fashion-outdoor-shoe.png" />
-        ShoeTrendz.com
+        <img src="@/assets/logo.png" />
+
       </router-link>
+      <h3 class="brandname">ShoeTrendz</h3>
     </div>
     <button class="navbar-toggler" type="button" @click="toggleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse ms-auto flex-column" :class="{ 'show': isNavbarOpen }" id="navbarNav">
       <nav class="navigazione">
-        <router-link v-bind:to="{ name: 'indexView' }">Home</router-link> |
+        <router-link v-bind:to="{ name: 'indexView' }">Novità e tendenze</router-link> |
         <router-link v-bind:to="{ name: 'shoes-list' }">Prodotti</router-link> |
         Modelli scarpe disponibili: {{ numeroScarpe }} |
         <router-link v-bind:to="{ name: 'utente' }">
@@ -119,6 +119,12 @@ export default {
 
 .linea {
   text-decoration: none;
+}
+
+.brandname {
+  font-weight: bold;
+  font-size: 2 rem;
+  color: #ffffff;
 }
 
 .User-icon,

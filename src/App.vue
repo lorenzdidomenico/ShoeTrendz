@@ -39,6 +39,6 @@ export default {
 
 <style scoped>
 .grigio {
-  background-color: #f6f6f6;
+  background-color: #0cadbe;
 }
 </style>

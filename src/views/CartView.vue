@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Carrello</h1>
-    <h2>Contenuto del Carrello</h2>
+    <h1>Il mio carrello</h1>
+
     <ul>
       <li v-for="(scarpa, index) in scarpeNelCarrello" :key="index">
         <!-- Verifica se 'scarpa' è definita e se ha le proprietà 'product' e 'price' -->
@@ -11,7 +11,7 @@
       </li>
     </ul>
     <p v-if="scarpeNelCarrello.length === 0">
-      Nessun prodotto aggiunto al carrello
+      Il tuo carrello è vuoto
     </p>
     <hr v-if="scarpeNelCarrello.length > 0" class="total-amount" />
 
