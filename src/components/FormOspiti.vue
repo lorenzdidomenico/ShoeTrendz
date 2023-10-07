@@ -46,6 +46,21 @@
     <br />
 
     <div class="form-group row">
+      <label for="telefono" class="col-sm-3 col-form-label">Numero di Telefono:</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          id="telefono"
+          v-model="telefono"
+          required
+          class="form-control"
+          :disabled="disabilitaForm"
+        />
+      </div>
+    </div>
+    <br />
+
+    <div class="form-group row">
       <label for="indirizzo" class="col-sm-3 col-form-label">Indirizzo di Spedizione:</label>
       <div class="col-sm-9">
         <input
@@ -61,12 +76,27 @@
     <br />
 
     <div class="form-group row">
-      <label for="telefono" class="col-sm-3 col-form-label">Numero di Telefono:</label>
+      <label for="città" class="col-sm-3 col-form-label">Città:</label>
       <div class="col-sm-9">
         <input
           type="text"
-          id="telefono"
-          v-model="telefono"
+          id="città"
+          v-model="città"
+          required
+          class="form-control"
+          :disabled="disabilitaForm"
+        />
+      </div>
+    </div>
+    <br />
+
+    <div class="form-group row">
+      <label for="provincia" class="col-sm-3 col-form-label">Provincia:</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          id="provincia"
+          v-model="provincia"
           required
           class="form-control"
           :disabled="disabilitaForm"
@@ -103,6 +133,8 @@ export default {
         email: this.email,
         indirizzo: this.indirizzo,
         telefono: this.telefono,
+        città: this.città,
+        provincia: this.provincia,
       });
       alert("Dati inviati correttamente");
     },
@@ -111,4 +143,3 @@ export default {
 </script>
 
 <style scoped></style>
-
