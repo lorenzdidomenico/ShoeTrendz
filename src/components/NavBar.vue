@@ -3,9 +3,10 @@
     <div class="brand">
       <router-link v-bind:to="{ name: 'indexView' }">
         <img src="@/assets/logo.png" />
-
       </router-link>
-      <h3 class="brandname">ShoeTrendz</h3>
+      <router-link v-bind:to="{ name: 'indexView' }">
+        <h3 class="brandname">ShoeTrendz</h3>
+      </router-link>
     </div>
     <button class="navbar-toggler" type="button" @click="toggleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -122,9 +123,11 @@ export default {
 }
 
 .brandname {
+  text-decoration: none;
   font-weight: bold;
-  font-size: 2 rem;
+  font-size: 2 em;
   color: #ffffff;
+
 }
 
 .User-icon,

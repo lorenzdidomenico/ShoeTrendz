@@ -24,7 +24,12 @@
       "nome": "Lorenzo",
       "cognome": "Di Domenico",
       "eta": 24,
-      "email": "lorenzo.didomenico@edu.unito.it"
+      "email": "lorenzo.didomenico@edu.unito.it",
+      "telefono": "3450410214",
+      "password": "21Giugno1999",
+      "indirizzo": "Via Carlo del prete, 65",
+      "città": "Torino",
+      "provincia": "Torino"
     }
   ]
 }
