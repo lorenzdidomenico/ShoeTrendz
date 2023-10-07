@@ -14,10 +14,14 @@
       <nav class="navigazione">
         <router-link v-bind:to="{ name: 'indexView' }">Home</router-link> |
         <router-link v-bind:to="{ name: 'shoes-list' }">Prodotti</router-link> |
-        <router-link v-bind:to="{ name: 'carrello' }">Carrello ({{ carrello }})</router-link>
-        &nbsp;<button @click="svuotaCarrello" class="Svuota-button">Svuota </button>&nbsp; |
         Modelli scarpe disponibili: {{ numeroScarpe }} |
-        <router-link v-bind:to="{ name: 'utente' }">Utente</router-link>
+        <router-link v-bind:to="{ name: 'utente' }">
+          <img src="@/assets/UserIcon.png" alt="Utente" class="User-icon" /></router-link> |
+
+        <router-link v-bind:to="{ name: 'carrello' }" class="linea">
+          <img src="@/assets/BagIcon.png" alt="Carrello" class="carrello-icon" /> ({{ carrello }})
+        </router-link>
+        &nbsp;<button @click="svuotaCarrello" class="Svuota-button">Svuota </button>&nbsp;
       </nav>
     </div>
   </div>
@@ -111,6 +115,20 @@ export default {
   background-color: black;
   color: #ffffff;
   /* Colore di sfondo al passaggio del mouse */
+}
+
+.linea {
+  text-decoration: none;
+}
+
+.User-icon,
+.carrello-icon {
+  width: 28px;
+  /* Imposta la larghezza dell'immagine a 30 pixel */
+  height: auto;
+  /* Imposta l'altezza in base alla larghezza mantenendo l'aspetto originale */
+  /* Oppure, se vuoi una dimensione specifica per l'altezza, puoi impostarla anche qui */
+  /* height: 30px; */
 }
 
 @media screen and (max-width: 992px) {
