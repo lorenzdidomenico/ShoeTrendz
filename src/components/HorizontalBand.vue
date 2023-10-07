@@ -33,13 +33,14 @@ export default {
 
 <style scoped>
 .fascia-orizzontale {
-    background-color: #e77b08;
+    background-color: #da3319;
     /* Colore di sfondo della fascia orizzontale (blu in questo caso) */
     color: #fff;
     /* Colore del testo (bianco in questo caso) */
     padding: 20px;
     /* Spaziatura interna della fascia orizzontale */
     text-align: center;
+    margin-top: 5px;
 }
 
 .titolo {
