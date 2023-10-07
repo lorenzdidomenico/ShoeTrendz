@@ -2,40 +2,26 @@
   <div>
     <form @submit.prevent="effettuaAccesso">
       <div class="form-group row">
-        <label for="nome" class="col-sm-3 col-form-label">Nome:</label>
-        <div class="col-sm-9">
-          <input
-            type="text"
-            id="nome"
-            v-model="nome"
-            required
-            class="form-control"
-            :disabled="mostraDatiUtenteRegistrato"
-          />
-        </div>
-      </div>
-      <br />
-      <div class="form-group row">
-        <label for="cognome" class="col-sm-3 col-form-label">Cognome:</label>
-        <div class="col-sm-9">
-          <input
-            type="text"
-            id="cognome"
-            v-model="cognome"
-            required
-            class="form-control"
-            :disabled="mostraDatiUtenteRegistrato"
-          />
-        </div>
-      </div>
-      <br />
-      <div class="form-group row">
         <label for="email" class="col-sm-3 col-form-label">Email:</label>
         <div class="col-sm-9">
           <input
             type="email"
             id="email"
             v-model="email"
+            required
+            class="form-control"
+            :disabled="mostraDatiUtenteRegistrato"
+          />
+        </div>
+      </div>
+      <br />
+      <div class="form-group row">
+        <label for="password" class="col-sm-3 col-form-label">Password:</label>
+        <div class="col-sm-9">
+          <input
+            type="password"
+            id="password"
+            v-model="password"
             required
             class="form-control"
             :disabled="mostraDatiUtenteRegistrato"
@@ -59,9 +45,9 @@ export default {
   },
   data() {
     return {
-      nome: "",
-      cognome: "",
       email: "",
+      password: "",
+      userId: null,
     };
   },
   methods: {
@@ -74,12 +60,14 @@ export default {
         // Verifica se esiste un utente con le credenziali inserite
         const utenteTrovato = utenti.find(
           (utente) =>
-            this.nome === utente.nome &&
-            this.cognome === utente.cognome &&
-            this.email === utente.email
+            this.email === utente.email &&
+            this.password === utente.password
         );
 
         if (utenteTrovato) {
+          // Salva l'ID dell'utente
+          this.userId = utenteTrovato.id;
+
           // Emetti un evento con i dati dell'utente registrato
           this.$emit("accessoRiuscito", utenteTrovato);
           alert("Accesso riuscito!");

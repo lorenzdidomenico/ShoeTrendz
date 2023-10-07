@@ -12,7 +12,12 @@
       "nome": "Luca",
       "cognome": "Gardenghi",
       "eta": 23,
-      "email": "luca.gardenghi28@gmail.com"
+      "email": "luca.gardenghi28@gmail.com",
+      "telefono": "3893155051",
+      "password": "28Marzo2000",
+      "indirizzo": "Via Borsellino 6",
+      "città": "San Mauro Torinese",
+      "provincia": "Torino"
     },
     {
       "id": 3,

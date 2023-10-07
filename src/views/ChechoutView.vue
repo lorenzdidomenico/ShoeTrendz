@@ -5,19 +5,33 @@
     <div v-if="mostraFormUtenteRegistrato">
       <!-- Form per utenti registrati -->
       <h2>Continua come utente registrato</h2>
-      <LoginForm @accessoRiuscito="gestisciAccessoRiuscito" :mostraDatiUtenteRegistrato="mostraDatiUtenteRegistrato" />
+      <LoginForm
+        @accessoRiuscito="gestisciAccessoRiuscito"
+        :mostraDatiUtenteRegistrato="mostraDatiUtenteRegistrato"
+      />
       <br />
-      <span @click="mostraFormUtenteRegistrato = false" style="text-decoration: underline; cursor: pointer"
-        v-if="!formInviato && !mostraDatiUtenteRegistrato">Continua come ospite</span>
+      <span
+        @click="mostraFormUtenteRegistrato = false"
+        style="text-decoration: underline; cursor: pointer"
+        v-if="!formInviato && !mostraDatiUtenteRegistrato"
+        >Continua come ospite</span
+      >
       <br />
     </div>
     <div v-else>
       <!-- Form per ospiti -->
       <h2>Continua come ospite</h2>
-      <FormOspiti @accessoOspite="gestisciAccessoOspite" :disabilitaForm="mostraDatiOspite" />
+      <FormOspiti
+        @accessoOspite="gestisciAccessoOspite"
+        :disabilitaForm="mostraDatiOspite"
+      />
       <br />
-      <span @click="mostraFormUtenteRegistrato = true" style="text-decoration: underline; cursor: pointer"
-        v-if="!formInviato && !mostraDatiOspite">Continua come utente registrato</span>
+      <span
+        @click="mostraFormUtenteRegistrato = true"
+        style="text-decoration: underline; cursor: pointer"
+        v-if="!formInviato && !mostraDatiOspite"
+        >Continua come utente registrato</span
+      >
       <br />
     </div>
 
@@ -39,27 +53,41 @@
     <button @click="applicaSconto" class="sconto-button">Applica Sconto</button>
 
     <!-- Mostra l'importo dello sconto solo se lo sconto è stato applicato -->
-    <p v-if="scontoApplicato" style="text-align: right; color: green;font-weight: bold;">
+    <p
+      v-if="scontoApplicato"
+      style="text-align: right; color: green; font-weight: bold"
+    >
       Sconto applicato: -{{ (totaleCarrello - totaleScontato).toFixed(2) }} €
     </p>
 
     <!-- Visualizza i dati dell'utente registrato -->
+
     <div v-if="mostraDatiUtenteRegistrato">
+      <br />
       <h2>DATI UTENTE REGISTRATO</h2>
       <p>Nome: {{ datiUtente.nome }}</p>
       <p>Cognome: {{ datiUtente.cognome }}</p>
       <p>Email: {{ datiUtente.email }}</p>
+      <p>Telefono: {{ datiUtente.telefono }}</p>
+      <p>
+        Indirizzo di spedizione: {{ datiUtente.indirizzo }},
+        {{ datiUtente.città }}, {{ datiUtente.provincia }}
+      </p>
       <!-- Altri campi dati dell'utente registrato -->
     </div>
 
     <!-- Visualizza i dati dell'utente ospite -->
     <div v-if="mostraDatiOspite">
+      <br />
       <h2>DATI UTENTE OSPITE</h2>
       <p>Nome utente ospite: {{ ospite.nome }}</p>
       <p>Cognome utente ospite: {{ ospite.cognome }}</p>
-      <p>Indirizzo utente ospite: {{ ospite.indirizzo }}</p>
       <p>Email utente ospite: {{ ospite.email }}</p>
       <p>Telefono utente ospite: {{ ospite.telefono }}</p>
+      <p>
+        Indirizzo utente ospite: {{ ospite.indirizzo }}, {{ ospite.città }},
+        {{ ospite.provincia }}
+      </p>
       <!-- Altri campi dati dell'utente ospite -->
     </div>
   </div>
@@ -69,6 +97,7 @@
 import LoginForm from "@/components/LoginForm.vue";
 import FormOspiti from "@/components/FormOspiti.vue";
 import { mapGetters } from "vuex";
+import axios from "axios";
 
 export default {
   components: {
@@ -86,6 +115,8 @@ export default {
         cognome: "",
         email: "",
         indirizzo: "",
+        città: "",
+        provincia: "",
         telefono: "",
       },
       mostraDatiOspite: false, // Mostra i dati dell'utente ospite
@@ -123,9 +154,27 @@ export default {
       this.ospite = datiOspite;
       this.mostraDatiOspite = true; // Mostra i dati dell'utente ospite
     },
-    gestisciAccessoRiuscito(datiUtente) {
+    async gestisciAccessoRiuscito(datiUtente) {
       this.datiUtente = datiUtente;
       this.mostraDatiUtenteRegistrato = true; // Mostra i dati dell'utente registrato
+
+      // Recupera i dati dell'utente registrato
+      await this.recuperaDatiUtenteRegistrato();
+    },
+    async recuperaDatiUtenteRegistrato() {
+      try {
+        // Esegui la richiesta HTTP per ottenere i dati dell'utente registrato
+        const response = await axios.get(
+          `http://localhost:3001/utenti/${this.datiUtente.id}`
+        );
+        this.datiUtente = response.data;
+      } catch (error) {
+        console.error(
+          "Errore durante il recupero dei dati dell'utente registrato:",
+          error
+        );
+        // Gestisci l'errore in modo appropriato, ad esempio, mostrando un messaggio di errore all'utente
+      }
     },
     vaiAlRiepilogoUtenteOspite() {
       this.mostraDatiOspite = true;
