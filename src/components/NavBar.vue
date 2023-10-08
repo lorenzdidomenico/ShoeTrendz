@@ -2,7 +2,7 @@
   <div id="nav" class="nav navbar navbar-expand-lg" :style="{ height: isNavbarOpen ? 'auto' : '60px' }">
     <div class="brand">
       <router-link v-bind:to="{ name: 'indexView' }">
-        <img src="@/assets/logo.png" />
+        <img src="@/assets/logo.png" class="logo" />
       </router-link>
       <router-link v-bind:to="{ name: 'indexView' }">
         <h3 class="brandname">ShoeTrendz</h3>
@@ -65,6 +65,11 @@ export default {
 </script>
 
 <style scoped>
+.logo {
+  width: 100px;
+  height: 60px;
+}
+
 .navigazione {
   margin-bottom: 15px;
 }
