@@ -39,13 +39,35 @@
     <br />
     <h2>RIEPILOGO ORDINE</h2>
     <h3>Scarpe nel carrello:</h3>
+
+    <!-- Visualizza un messaggio se il carrello è vuoto -->
+    <div v-if="scarpeNelCarrello.length === 0">
+      <p>Il tuo carrello è vuoto.</p>
+    </div>
+
     <ul>
       <li v-for="(scarpa, index) in scarpeNelCarrello" :key="index">
         {{ scarpa.product }} - {{ scarpa.price }} €
       </li>
     </ul>
+
     <p style="text-align: right">
-      <strong> Totale del carrello: </strong> {{ totaleScontato }} €
+      <strong> Totale del carrello: </strong> {{ totaleScontato }} €<sup
+        >&ast;</sup
+      >
+      <br />
+    </p>
+
+    <p v-if="!mostraDatiUtenteRegistrato" style="text-align: right">
+      <sup>&ast;</sup> Spese di spedizione 5€
+    </p>
+
+    <p v-if="mostraDatiUtenteRegistrato" style="text-align: right">
+      <span style="color: green"
+        >Spedizione gratuita per utenti registrati !</span
+      >
+      <br />
+      <strong> Totale del carrello: </strong> {{ totaleScontato - 5 }} €
     </p>
 
     <h3>Hai un codice sconto?</h3>
@@ -90,6 +112,19 @@
       </p>
       <!-- Altri campi dati dell'utente ospite -->
     </div>
+
+    <br />
+
+    <router-link v-bind:to="{ name: 'pagamento' }">
+      <div
+        v-if="mostraDatiOspite || mostraDatiUtenteRegistrato"
+        class="d-flex justify-content-end"
+      >
+        <button class="btn btn-primary" style="text-align: right">
+          Procedi al pagamento
+        </button>
+      </div>
+    </router-link>
   </div>
 </template>
 

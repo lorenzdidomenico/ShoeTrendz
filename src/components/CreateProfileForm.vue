@@ -28,19 +28,21 @@
         </div>
       </div>
       <br />
+
       <div class="form-group row">
-        <label for="eta" class="col-sm-3 col-form-label">Età:</label>
+        <label for="telefono" class="col-sm-3 col-form-label">Telefono:</label>
         <div class="col-sm-9">
           <input
-            type="number"
-            id="eta"
-            v-model="nuovoUtente.eta"
+            type="tel"
+            id="telefono"
+            v-model="nuovoUtente.telefono"
             required
             class="form-control"
           />
         </div>
       </div>
       <br />
+
       <div class="form-group row">
         <label for="email" class="col-sm-3 col-form-label">Email:</label>
         <div class="col-sm-9">
@@ -54,6 +56,63 @@
         </div>
       </div>
       <br />
+
+      <div class="form-group row">
+        <label for="password" class="col-sm-3 col-form-label">Password:</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            id="password"
+            v-model="nuovoUtente.password"
+            required
+            class="form-control"
+          />
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group row">
+        <label for="indirizzo" class="col-sm-3 col-form-label">Indirizzo:</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            id="indirizzo"
+            v-model="nuovoUtente.indirizzo"
+            required
+            class="form-control"
+          />
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group row">
+        <label for="città" class="col-sm-3 col-form-label">Città:</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            id="città"
+            v-model="nuovoUtente.città"
+            required
+            class="form-control"
+          />
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group row">
+        <label for="provincia" class="col-sm-3 col-form-label">Provincia:</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            id="provincia"
+            v-model="nuovoUtente.provincia"
+            required
+            class="form-control"
+          />
+        </div>
+      </div>
+      <br />
+
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Salva</button>
       </div>
@@ -72,8 +131,12 @@ export default {
         id: "",
         nome: "",
         cognome: "",
-        eta: null,
+        telefono: "",
         email: "",
+        password: "",
+        indirizzo: "",
+        città: "",
+        provincia: "",
       },
       messaggioConferma: "",
     };

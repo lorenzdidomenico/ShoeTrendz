@@ -6,6 +6,7 @@ import ProfileView from "../views/ProfileView.vue";
 import CreateProfile from "../views/CreateProfile.vue";
 import indexView from "../views/indexView.vue";
 import ChechOut from "../views/ChechoutView.vue";
+import Pagamento from "../views/PagamentoView.vue"
 
 const routes = [
   {
@@ -43,6 +44,11 @@ const routes = [
     path: "/chechOut",
     name: "chechOut",
     component: ChechOut,
+  },
+  {
+    path: "/pagamento",
+    name: "pagamento",
+    component: Pagamento,
   },
 ];
 
