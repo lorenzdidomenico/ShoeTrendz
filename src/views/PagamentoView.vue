@@ -84,7 +84,8 @@
   
         <!-- Visualizza un messaggio di successo solo dopo il pagamento -->
         <div v-if="pagamentoAvvenuto" class="alert alert-success">
-          PAGAMENTO AVVENUTO CON SUCCESSO
+          PAGAMENTO AVVENUTO CON SUCCESSO <br>
+          Verrai ora reidirizzato alla home
         </div>
   
         <button
