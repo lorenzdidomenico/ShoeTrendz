@@ -1,6 +1,10 @@
 # ShoeTrenz: Ecommerce di scarpe
 
-ShoeTrend vuole essere un'ecommerce di scarpe completo di Homepage in cui poter visualizzare: tutte le novità e tendenze; una pagina prodotti in cui è possibile visualizzare le scarpe disponibili in vendita con possibilità di effettuare una visualizzazione nel dettaglio del prodotto prescelto; una pagina utente in cui è possibile effettuare l'accesso oppure registrarsi come nuovo utente; infine si trova la pagina del carrello in cui è possibile visualizzare i prodotti aggiunti e procedere con il checkout. Il flusso di checkout è stato progettato per simulare tutto il procedimento fino all'acquisto del/dei prodotti.
+ShoeTrend si propone di essere un completo sito di e-commerce specializzato in scarpe, offrendo un'ampia gamma di funzionalità per gli utenti. La homepage del sito offre una panoramica completa delle ultime novità e tendenze nel mondo delle scarpe. Gli utenti possono esplorare la vasta selezione di prodotti disponibili per la vendita tramite una pagina dedicata, che consente di visualizzare dettagliatamente ciascun prodotto selezionato.
+
+Una componente fondamentale di ShoeTrend è la pagina utente, che offre agli utenti la possibilità di effettuare l'accesso al proprio account esistente o di registrarsi come nuovi utenti. Questa funzionalità permette una gestione personalizzata delle preferenze e degli acquisti passati.
+
+Infine, ShoeTrend presenta una pagina dedicata al carrello degli acquisti, dove gli utenti possono visualizzare e gestire i prodotti aggiunti al carrello. Questa pagina supporta un flusso di checkout completo, simulando il processo di acquisto fino alla conferma finale.
 
 ## Autori
 
