@@ -28,7 +28,7 @@
     </button>
 
 <!-- Mostra il totale con spedizione solo se è stato calcolato e totaleSenzaSpedizione è maggiore di 0 -->
-<p v-if="mostraTotaleConSpedizione && carrello > 0" style="text-align: right">
+<p v-if="mostraTotaleConSpedizione && totaleSenzaSpedizione > 0" style="text-align: right">
   <strong>Totale con spedizione:</strong> {{ totaleConSpedizione }} €
 </p>
 
