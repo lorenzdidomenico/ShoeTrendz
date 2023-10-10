@@ -115,6 +115,8 @@ export default createStore({
         text: "Hai dei vecchi articoli inutilizzati da troppo tempo, messi in panchina declassati in serie B e relegati al passato? Potrebbero essere i protagonisti del nostro futuro",
       },
     ],
+    totaleSenzaSpedizione:0,
+    totaleConSpedizione:0,
     carrello: 0,
     scarpeNelCarrello: [],
   },
@@ -145,3 +147,4 @@ export default createStore({
     },
   },
 });
+

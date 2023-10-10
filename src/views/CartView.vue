@@ -38,11 +38,11 @@
 </p>
 
 <!-- Mostra il pulsante "Checkout" solo se è stato calcolato il totale con spedizione e totaleSenzaSpedizione è maggiore di 0 -->
-<router-link v-bind:to="{ name: 'chechOut' }">
+
   <button v-if="mostraTotaleConSpedizione && totaleSenzaSpedizione > 0" @click="avviaCheckout" class="checkout-button">
     Checkout
   </button>
-</router-link>
+
   </div>
 </template>
 
@@ -53,8 +53,6 @@ export default {
   data() {
     return {
       costoSpedizione: 5, // Imposta il costo della spedizione desiderato
-      totaleSenzaSpedizione: 0,
-      totaleConSpedizione: 0,
       mostraTotaleConSpedizione: false,
       codiceSconto: "",
       scontoRiscattato: false,
@@ -86,8 +84,16 @@ export default {
       this.mostraTotaleConSpedizione = true;
     },
     avviaCheckout() {
-      // Puoi eseguire la logica del checkout qui se necessario
-      // Calcola il totale senza spedizione
+     // Esegui il controllo se il carrello è vuoto
+    if (this.scarpeNelCarrello.length === 0) {
+      // Mostra un messaggio di "carrello vuoto" o esegui un'azione appropriata
+      alert("Carrello vuoto! Aggiungi prodotti al carrello prima di procedere.");
+      window.location.reload();
+      return;
+    } else {
+      // Altrimenti, avvia il reindirizzamento alla vista "chechOut"
+      this.$router.push({ name: 'chechOut' });
+    }
     },
   },
 };
