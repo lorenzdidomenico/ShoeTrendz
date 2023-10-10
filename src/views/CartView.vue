@@ -10,9 +10,7 @@
         </template>
       </li>
     </ul>
-    <p v-if="scarpeNelCarrello.length === 0">
-      Il tuo carrello è vuoto
-    </p>
+    <p v-if="scarpeNelCarrello.length === 0">Il tuo carrello è vuoto</p>
     <hr v-if="scarpeNelCarrello.length > 0" class="total-amount" />
 
     <!-- Mostra il totale iniziale -->
@@ -21,22 +19,30 @@
     </p>
 
     <!-- Mostra il pulsante "Calcola Totale" solo se non è stato calcolato il totale con spedizione -->
-    <button v-if="!mostraTotaleConSpedizione" @click="calcolaTotale" class="checkout-button">
+    <button
+      v-if="!mostraTotaleConSpedizione"
+      @click="calcolaTotale"
+      class="checkout-button"
+    >
       Calcola Totale
     </button>
 
-    <!-- Mostra il totale con spedizione solo se è stato calcolato -->
-    <p v-if="mostraTotaleConSpedizione" style="text-align: right">
-      <strong>Totale con spedizione:</strong> {{ totaleConSpedizione }} €
-    </p>
+<!-- Mostra il totale con spedizione solo se è stato calcolato e totaleSenzaSpedizione è maggiore di 0 -->
+<p v-if="mostraTotaleConSpedizione && totaleSenzaSpedizione > 0" style="text-align: right">
+  <strong>Totale con spedizione:</strong> {{ totaleConSpedizione }} €
+</p>
 
-    <!-- Mostra il pulsante "Checkout" solo se è stato calcolato il totale con spedizione -->
-    <router-link v-bind:to="{ name: 'chechOut' }"><button v-if="mostraTotaleConSpedizione" @click="avviaCheckout"
-        class="checkout-button">
-        Checkout
-      </button> </router-link>
+<!-- Mostra un messaggio diverso quando totaleSenzaSpedizione è uguale a 0 -->
+<p v-else-if="mostraTotaleConSpedizione && totaleSenzaSpedizione === 0" style="text-align: right">
+  Aggiungi prodotti al carrello per continuare
+</p>
 
-
+<!-- Mostra il pulsante "Checkout" solo se è stato calcolato il totale con spedizione e totaleSenzaSpedizione è maggiore di 0 -->
+<router-link v-bind:to="{ name: 'chechOut' }">
+  <button v-if="mostraTotaleConSpedizione && totaleSenzaSpedizione > 0" @click="avviaCheckout" class="checkout-button">
+    Checkout
+  </button>
+</router-link>
   </div>
 </template>
 
@@ -73,18 +79,24 @@ export default {
       this.totaleSenzaSpedizione = this.calcolaTotaleCarrello();
 
       // Mostra il totale con il costo di spedizione
-      this.totaleConSpedizione = this.totaleSenzaSpedizione + this.costoSpedizione;
+      this.totaleConSpedizione =
+        this.totaleSenzaSpedizione + this.costoSpedizione;
 
       // Ora hai il totale con il costo di spedizione disponibile
       this.mostraTotaleConSpedizione = true;
     },
     avviaCheckout() {
       // Puoi eseguire la logica del checkout qui se necessario
-
       // Calcola il totale senza spedizione
-
     },
+    methods: {
+  svuotaCarrello() {
 
+    // Chiama le mutazioni per azzerare le variabili
+    this.$store.commit('AZZERA_TOTALE_CON_SPEDIZIONE');
+    this.$store.commit('AZZERA_TOTALE_SENZA_SPEDIZIONE');
+  },
+},
 
   },
 };
