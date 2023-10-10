@@ -28,7 +28,7 @@
     </button>
 
 <!-- Mostra il totale con spedizione solo se è stato calcolato e totaleSenzaSpedizione è maggiore di 0 -->
-<p v-if="mostraTotaleConSpedizione && totaleSenzaSpedizione > 0" style="text-align: right">
+<p v-if="mostraTotaleConSpedizione && carrello > 0" style="text-align: right">
   <strong>Totale con spedizione:</strong> {{ totaleConSpedizione }} €
 </p>
 
@@ -89,15 +89,6 @@ export default {
       // Puoi eseguire la logica del checkout qui se necessario
       // Calcola il totale senza spedizione
     },
-    methods: {
-  svuotaCarrello() {
-
-    // Chiama le mutazioni per azzerare le variabili
-    this.$store.commit('AZZERA_TOTALE_CON_SPEDIZIONE');
-    this.$store.commit('AZZERA_TOTALE_SENZA_SPEDIZIONE');
-  },
-},
-
   },
 };
 </script>
