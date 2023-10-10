@@ -52,4 +52,52 @@ export default {
   text-decoration: none;
   font-weight: 100;
 }
+
+.shoe-card img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Stile per dispositivi mobili */
+@media (max-width: 768px) {
+  .shoe-card {
+    padding: 10px;
+  }
+
+  .shoe-card .title {
+    font-size: 18px;
+  }
+
+  /* Aggiungi altre modifiche necessarie per dispositivi mobili */
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .shoe-card {
+    padding: 15px;
+    width: 100%;
+    /* Due card per riga su tablet */
+    box-sizing: border-box;
+    /* Assicura che il padding non aumenti la larghezza effettiva */
+  }
+
+  /* Regola la larghezza delle card in base alle dimensioni del tablet */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .shoe-card {
+      width: 100%;
+
+      /* Tre card per riga su tablet */
+    }
+  }
+
+  /* Altre regole per ottimizzare il layout su tablet */
+}
+
+/* Stile per tablet */
+/* Stile per tablet */
+
+/* Regola la larghezza delle card in base alle dimensioni del tablet */
+
+
+
+/* Aggiungi stili per desktop o altre dimensioni dello schermo */
 </style>

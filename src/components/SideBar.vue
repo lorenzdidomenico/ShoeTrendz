@@ -1,11 +1,6 @@
 <template>
   <div class="sidebar">
-    <SideCard
-      v-for="card in $store.state.cards"
-      :cardData="card"
-      :key="card.id"
-      class="custom-card"
-    ></SideCard>
+    <SideCard v-for="card in $store.state.cards" :cardData="card" :key="card.id" class="custom-card"></SideCard>
   </div>
 </template>
 
@@ -31,10 +26,10 @@ export default {
   margin-bottom: 10px;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 767px) {
   .sidebar {
-    display: none; /* Nascondi la barra laterale sotto i 992px */
+    display: none;
+    /* Nascondi la barra laterale sotto i 992px */
   }
 }
-
 </style>
