@@ -65,6 +65,12 @@ export default {
 </script>
 
 <style scoped>
+.body {
+  margin: 0;
+  padding: 0;
+}
+
+
 .logo {
   width: 100px;
   height: 60px;
@@ -82,6 +88,7 @@ export default {
   background-color: #0cadbe;
   padding-left: 10px;
   padding-right: 10px;
+
 }
 
 .brand {
@@ -107,6 +114,7 @@ export default {
   color: rgba(0, 0, 0, 0.5);
   text-decoration: none;
   font-size: medium;
+
 
 }
 

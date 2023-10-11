@@ -73,7 +73,7 @@ export default {
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .shoe-card {
-    padding: 15px;
+    padding: 30px;
     width: 100%;
     /* Due card per riga su tablet */
     box-sizing: border-box;
@@ -81,13 +81,7 @@ export default {
   }
 
   /* Regola la larghezza delle card in base alle dimensioni del tablet */
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .shoe-card {
-      width: 100%;
 
-      /* Tre card per riga su tablet */
-    }
-  }
 
   /* Altre regole per ottimizzare il layout su tablet */
 }

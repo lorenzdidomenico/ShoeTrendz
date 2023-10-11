@@ -28,9 +28,7 @@
     </div>
     <br />
     <p>
-      <router-link v-bind:to="{ name: 'shoes-list' }"
-        >Torna alla lista</router-link
-      >
+      <router-link v-bind:to="{ name: 'shoes-list' }">Torna alla lista</router-link>
     </p>
   </div>
 </template>

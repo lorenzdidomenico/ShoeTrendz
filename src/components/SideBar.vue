@@ -1,6 +1,8 @@
 <template>
-  <div class="sidebar">
-    <SideCard v-for="card in $store.state.cards" :cardData="card" :key="card.id" class="custom-card"></SideCard>
+  <div class="container">
+    <div class="col-12 col-md-6 col-lg-4" v-for="card in $store.state.cards" :key="card.id">
+      <SideCard :cardData="card" class="custom-card"></SideCard>
+    </div>
   </div>
 </template>
 
@@ -15,21 +17,15 @@ export default {
 </script>
 
 <style scoped>
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
 .custom-card {
   width: 100%;
   margin-bottom: 10px;
 }
 
 @media screen and (max-width: 767px) {
-  .sidebar {
-    display: none;
-    /* Nascondi la barra laterale sotto i 992px */
+  .custom-card {
+    /* Modifica il layout delle carte quando lo schermo è inferiore a 768px */
+    width: 100%;
   }
 }
 </style>
