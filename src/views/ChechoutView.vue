@@ -115,16 +115,14 @@
 
     <br />
 
-    <router-link v-bind:to="{ name: 'pagamento' }">
       <div
         v-if="mostraDatiOspite || mostraDatiUtenteRegistrato"
         class="d-flex justify-content-end"
       >
-        <button class="btn btn-primary" style="text-align: right">
+        <button class="btn btn-primary" style="text-align: right" @click="vaiPagamento">
           Procedi al pagamento
         </button>
       </div>
-    </router-link>
   </div>
 </template>
 
@@ -229,6 +227,19 @@ export default {
         alert("Il codice sconto è stato già riscattato.");
       }
     },
+
+    vaiPagamento (){
+        // Esegui il controllo se il carrello è vuoto
+    if (this.scarpeNelCarrello.length === 0) {
+      // Mostra un messaggio di "carrello vuoto" o esegui un'azione appropriata
+      alert("Carrello vuoto! Aggiungi prodotti al carrello prima di procedere.");
+      this.$router.push({ name: "shoes-list"});
+      return;
+    } else {
+      // Altrimenti, avvia il reindirizzamento alla vista "chechOut"
+      this.$router.push({ name: 'pagamento' });
+    }
+    }
   },
 };
 </script>
