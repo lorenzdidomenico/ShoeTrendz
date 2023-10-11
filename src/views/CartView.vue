@@ -88,7 +88,7 @@ export default {
     if (this.scarpeNelCarrello.length === 0) {
       // Mostra un messaggio di "carrello vuoto" o esegui un'azione appropriata
       alert("Carrello vuoto! Aggiungi prodotti al carrello prima di procedere.");
-      window.location.reload();
+      this.$router.push({ name: "shoes-list"});
       return;
     } else {
       // Altrimenti, avvia il reindirizzamento alla vista "chechOut"
