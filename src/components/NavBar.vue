@@ -183,8 +183,9 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    background-color: #0cadbe
+    padding: 10px;
+    background-color: #0cadbe;
+    width: 100%;
   }
 
   .navigazione router-link::after {
