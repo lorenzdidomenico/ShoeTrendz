@@ -2,7 +2,7 @@
   <div class="totale">
     <!-- Aggiungi FasciaOrizzontale nella tua vista -->
     <HorizontalBand titolo="CREA IL TUO STILE CON ShoeTrendz:" sottotitolo="dove la moda incontra la comodità!"
-      :testoPulsante="'Acquista'" />
+      :testoPulsante="'Acquista'" :to="'/shoeList'" />
 
     <!-- Includi il componente carosello qui -->
     <div class="carosello">
@@ -21,7 +21,7 @@
     <h1> Restock esclusivo: i migliori stili sono tornati. </h1>
     <h2>Acquista ora prima che finiscano di nuovo! </h2>
     <div class="Gif-container">
-      <router-link to="/shoes-list">
+      <router-link :to='"/shoesList"'>
         <GifCard :gifUrl="require('@/assets/Restock.gif')" />
       </router-link>
     </div>
@@ -77,6 +77,9 @@ export default {
   display: flex;
   max-width: 100%;
   padding: 20px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
 
 .Gif-container img {

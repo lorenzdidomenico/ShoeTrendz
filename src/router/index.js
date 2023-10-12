@@ -10,7 +10,7 @@ import Pagamento from "../views/PagamentoView.vue";
 
 const routes = [
   {
-    path: "/shoes-list",
+    path: "/shoesList",
     name: "shoes-list",
     component: ShoesList,
   },
