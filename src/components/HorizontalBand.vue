@@ -25,7 +25,7 @@ export default {
     methods: {
         handleClick() {
             // Logica da eseguire quando il pulsante viene cliccato
-            console.log('Pulsante cliccato!');
+            this.$router.push('/shoesList');
         },
     },
 };

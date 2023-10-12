@@ -2,7 +2,7 @@
   <div class="totale">
     <!-- Aggiungi FasciaOrizzontale nella tua vista -->
     <HorizontalBand titolo="CREA IL TUO STILE CON ShoeTrendz:" sottotitolo="dove la moda incontra la comodità!"
-      :testoPulsante="'Acquista'" :to="'/shoeList'" />
+      :testoPulsante="'Acquista'" :to="'/shoesList'" />
 
     <!-- Includi il componente carosello qui -->
     <div class="carosello">
