@@ -125,6 +125,13 @@ export default createStore({
       state.carrello++;
       state.scarpeNelCarrello.push(scarpa);
     },
+    RIMUOVI_DAL_CARRELLO: function (state, scarpa) {
+      state.carrello--;
+      const index = state.scarpeNelCarrello.findIndex(item => item.id === scarpa.id);
+      if (index !== -1) {
+        state.scarpeNelCarrello.splice(index, 1);
+      }
+    },
     SVUOTA_CARRELLO: function (state) {
       state.carrello = 0;
       state.scarpeNelCarrello = [];
