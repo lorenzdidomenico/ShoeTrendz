@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="totale">
     <h1>Il mio carrello</h1>
 
     <ul>
@@ -125,4 +125,10 @@ export default {
   background-color: #0056b3;
   /* Colore di sfondo al passaggio del mouse */
 }
+
+@media screen and (max-width: 992px) and (min-width: 768px) {
+  #totale{
+    margin-right: 50px;
+  }
+} 
 </style>

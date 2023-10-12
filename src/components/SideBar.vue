@@ -28,9 +28,4 @@ export default {
   margin-bottom: 10px;
 }
 
-@media screen and (max-width: 992px) {
-  .sidebar{
-    display: none;
-  }
-}
 </style>

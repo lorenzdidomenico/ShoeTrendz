@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="totale">
     <form @submit.prevent="effettuaAccesso">
       <div class="form-group row">
         <label for="email" class="col-sm-3 col-form-label">Email:</label>
@@ -84,4 +84,10 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+@media screen and (max-width: 992px) and (min-width: 768px) {
+  #totale{
+    margin-right: 50px;
+  }
+} 
+</style>

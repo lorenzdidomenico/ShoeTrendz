@@ -58,4 +58,10 @@ export default {
   width: 50%;
   display: block;
 }
+
+@media screen and (max-width: 992px) and (min-width: 768px) {
+  .dettagli{
+    margin-right: 50px;
+  }
+} 
 </style>

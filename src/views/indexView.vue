@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="totale">
     <!-- Aggiungi FasciaOrizzontale nella tua vista -->
     <HorizontalBand titolo="CREA IL TUO STILE CON ShoeTrendz:" sottotitolo="dove la moda incontra la comodità!"
       :testoPulsante="'Acquista'" />
@@ -88,4 +88,10 @@ h1 {
   text-align: center;
   font-size: 30px;
 }
+
+@media screen and (max-width: 992px) and (min-width: 768px) {
+  #totale{
+    margin-right: 50px;
+  }
+} 
 </style>

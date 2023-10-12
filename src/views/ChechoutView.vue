@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="totale">
     <h1>Checkout</h1>
     <br />
     <div v-if="mostraFormUtenteRegistrato">
@@ -248,4 +248,10 @@ export default {
 .sconto-button {
   background-color: #5dc746;
 }
+
+@media screen and (max-width: 992px) and (min-width: 768px) {
+  #totale{
+    margin-right: 50px;
+  }
+} 
 </style>
