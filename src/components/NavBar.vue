@@ -32,6 +32,7 @@
             </router-link>
           </li>
           <button @click="svuotaCarrello" class="Svuota-button">Svuota</button>
+          <li class="nav-item numeroScarpe">Modelli scarpe disponibili: {{ numeroScarpe }}</li>
         </ul>
       </nav>
     </div>
@@ -160,6 +161,11 @@ export default {
   text-decoration: none;
 }
 
+.numeroScarpe{
+  margin-left: 20px;
+  padding-top: 10px;
+}
+
 .brandname {
   text-decoration: none;
   font-weight: bold;
@@ -193,6 +199,9 @@ export default {
     /* Nascondi il testo "|" vicino alle voci del menu */
   }
 
+  .numeroScarpe{
+    all: unset;
+  }
 
 }
 </style>
