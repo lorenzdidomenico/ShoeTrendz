@@ -21,8 +21,9 @@
     <h1> Restock esclusivo: i migliori stili sono tornati. </h1>
     <h2>Acquista ora prima che finiscano di nuovo! </h2>
     <div class="Gif-container">
-
-      <GifCard :gifUrl="require('@/assets/Restock.gif')" />
+      <router-link to="/shoes-list">
+        <GifCard :gifUrl="require('@/assets/Restock.gif')" />
+      </router-link>
     </div>
   </div>
 </template>
@@ -90,8 +91,8 @@ h1 {
 }
 
 @media screen and (max-width: 992px) and (min-width: 768px) {
-  .totale{
+  .totale {
     margin-right: 50px;
   }
-} 
+}
 </style>
