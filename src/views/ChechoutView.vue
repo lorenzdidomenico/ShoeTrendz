@@ -5,33 +5,19 @@
     <div v-if="mostraFormUtenteRegistrato">
       <!-- Form per utenti registrati -->
       <h2>Continua come utente registrato</h2>
-      <LoginForm
-        @accessoRiuscito="gestisciAccessoRiuscito"
-        :mostraDatiUtenteRegistrato="mostraDatiUtenteRegistrato"
-      />
+      <LoginForm @accessoRiuscito="gestisciAccessoRiuscito" :mostraDatiUtenteRegistrato="mostraDatiUtenteRegistrato" />
       <br />
-      <span
-        @click="mostraFormUtenteRegistrato = false"
-        style="text-decoration: underline; cursor: pointer"
-        v-if="!formInviato && !mostraDatiUtenteRegistrato"
-        >Continua come ospite</span
-      >
+      <span @click="mostraFormUtenteRegistrato = false" style="text-decoration: underline; cursor: pointer"
+        v-if="!formInviato && !mostraDatiUtenteRegistrato">Continua come ospite</span>
       <br />
     </div>
     <div v-else>
       <!-- Form per ospiti -->
       <h2>Continua come ospite</h2>
-      <FormOspiti
-        @accessoOspite="gestisciAccessoOspite"
-        :disabilitaForm="mostraDatiOspite"
-      />
+      <FormOspiti @accessoOspite="gestisciAccessoOspite" :disabilitaForm="mostraDatiOspite" />
       <br />
-      <span
-        @click="mostraFormUtenteRegistrato = true"
-        style="text-decoration: underline; cursor: pointer"
-        v-if="!formInviato && !mostraDatiOspite"
-        >Continua come utente registrato</span
-      >
+      <span @click="mostraFormUtenteRegistrato = true" style="text-decoration: underline; cursor: pointer"
+        v-if="!formInviato && !mostraDatiOspite">Continua come utente registrato</span>
       <br />
     </div>
 
@@ -52,9 +38,7 @@
     </ul>
 
     <p style="text-align: right">
-      <strong> Totale del carrello: </strong> {{ totaleScontato }} €<sup
-        >&ast;</sup
-      >
+      <strong> Totale del carrello: </strong> {{ totaleScontato }} €<sup>&ast;</sup>
       <br />
     </p>
 
@@ -63,9 +47,7 @@
     </p>
 
     <p v-if="mostraDatiUtenteRegistrato" style="text-align: right">
-      <span style="color: green"
-        >Spedizione gratuita per utenti registrati !</span
-      >
+      <span style="color: green">Spedizione gratuita per utenti registrati !</span>
       <br />
       <strong> Totale del carrello: </strong> {{ totaleScontato - 5 }} €
     </p>
@@ -75,10 +57,7 @@
     <button @click="applicaSconto" class="sconto-button">Applica Sconto</button>
 
     <!-- Mostra l'importo dello sconto solo se lo sconto è stato applicato -->
-    <p
-      v-if="scontoApplicato"
-      style="text-align: right; color: green; font-weight: bold"
-    >
+    <p v-if="scontoApplicato" style="text-align: right; color: green; font-weight: bold">
       Sconto applicato: -{{ (totaleCarrello - totaleScontato).toFixed(2) }} €
     </p>
 
@@ -115,14 +94,11 @@
 
     <br />
 
-      <div
-        v-if="mostraDatiOspite || mostraDatiUtenteRegistrato"
-        class="d-flex justify-content-end"
-      >
-        <button class="btn btn-primary" style="text-align: right" @click="vaiPagamento">
-          Procedi al pagamento
-        </button>
-      </div>
+    <div v-if="mostraDatiOspite || mostraDatiUtenteRegistrato" class="d-flex justify-content-end">
+      <button class="btn btn-primary" style="text-align: right" @click="vaiPagamento">
+        Procedi al pagamento
+      </button>
+    </div>
   </div>
 </template>
 
@@ -216,7 +192,7 @@ export default {
     applicaSconto() {
       // Logica per applicare lo sconto
       if (!this.scontoApplicato) {
-        if (this.codiceSconto === "LORENZO50") {
+        if (this.codiceSconto === "TRENDZ50") {
           this.scontoApplicato = true; // Applica lo sconto al totale del carrello
 
           alert("Codice sconto riscattato correttamente!");
@@ -228,17 +204,17 @@ export default {
       }
     },
 
-    vaiPagamento (){
-        // Esegui il controllo se il carrello è vuoto
-    if (this.scarpeNelCarrello.length === 0) {
-      // Mostra un messaggio di "carrello vuoto" o esegui un'azione appropriata
-      alert("Carrello vuoto! Aggiungi prodotti al carrello prima di procedere.");
-      this.$router.push({ name: "shoes-list"});
-      return;
-    } else {
-      // Altrimenti, avvia il reindirizzamento alla vista "chechOut"
-      this.$router.push({ name: 'pagamento' });
-    }
+    vaiPagamento() {
+      // Esegui il controllo se il carrello è vuoto
+      if (this.scarpeNelCarrello.length === 0) {
+        // Mostra un messaggio di "carrello vuoto" o esegui un'azione appropriata
+        alert("Carrello vuoto! Aggiungi prodotti al carrello prima di procedere.");
+        this.$router.push({ name: "shoes-list" });
+        return;
+      } else {
+        // Altrimenti, avvia il reindirizzamento alla vista "chechOut"
+        this.$router.push({ name: 'pagamento' });
+      }
     }
   },
 };
@@ -250,8 +226,8 @@ export default {
 }
 
 @media screen and (max-width: 992px) and (min-width: 768px) {
-  .totale{
+  .totale {
     margin-right: 50px;
   }
-} 
+}
 </style>
