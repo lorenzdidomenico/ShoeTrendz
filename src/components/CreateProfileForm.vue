@@ -1,5 +1,5 @@
 <template>
-  <div id="totale">
+  <div class="totale">
     <h2>Inserisci un nuovo utente</h2>
     <form @submit.prevent="onSubmit">
       <div class="form-group row">
@@ -172,7 +172,7 @@ export default {
 }
 
 @media screen and (max-width: 992px) and (min-width: 768px) {
-  #totale{
+  .totale{
     margin-right: 50px;
   }
 } 

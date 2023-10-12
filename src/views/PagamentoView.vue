@@ -1,5 +1,5 @@
 <template>
-  <div id="totale">
+  <div class="totale">
     <h1>Procedere al pagamento</h1>
     <br /><br />
     <h2>Inserire dati carta</h2>
@@ -144,7 +144,7 @@ export default {
 
 <style scoped>
 @media screen and (max-width: 992px) and (min-width: 768px) {
-  #totale{
+  .totale{
     margin-right: 50px;
   }
 } 

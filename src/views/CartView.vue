@@ -1,5 +1,5 @@
 <template>
-  <div id="totale">
+  <div class="totale">
     <h1>Il mio carrello</h1>
 
     <ul>
@@ -127,7 +127,7 @@ export default {
 }
 
 @media screen and (max-width: 992px) and (min-width: 768px) {
-  #totale{
+  .totale{
     margin-right: 50px;
   }
 } 

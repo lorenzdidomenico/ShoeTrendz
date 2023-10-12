@@ -1,5 +1,5 @@
 <template>
-  <div id="totale">
+  <div class="totale">
     <h1>Checkout</h1>
     <br />
     <div v-if="mostraFormUtenteRegistrato">
@@ -250,7 +250,7 @@ export default {
 }
 
 @media screen and (max-width: 992px) and (min-width: 768px) {
-  #totale{
+  .totale{
     margin-right: 50px;
   }
 } 

@@ -1,5 +1,5 @@
 <template>
-  <div id="totale">
+  <div class="totale">
     <h1>Scarpe</h1>
     <h2>Scarpe disponibili: {{ numeroScarpe }} </h2>
     <div class="row">
@@ -33,7 +33,7 @@ h1, h2 {
 }
 
 @media screen and (max-width: 992px) and (min-width: 768px) {
-  #totale{
+  .totale{
     margin-right: 50px;
   }
 } 
