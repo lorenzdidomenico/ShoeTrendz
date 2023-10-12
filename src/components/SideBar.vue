@@ -19,6 +19,7 @@ export default {
 </script>
 
 <style scoped>
+
 .custom-card {
   width: 100%;
   margin-bottom: 10px;

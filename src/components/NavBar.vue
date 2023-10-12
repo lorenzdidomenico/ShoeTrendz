@@ -12,9 +12,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse ms-auto flex-column" :class="{ 'show': isNavbarOpen }" id="navbarNav">
-      <nav class="navigazione">
+      <nav class="navigazione ms-auto">
         <ul class="navbar-nav">
-          <li class="nav-item">
+          <li class="nav-item ">
             <router-link class="nav-link" v-bind:to="{ name: 'indexView' }">Novità e tendenze</router-link>
           </li>
           <li class="nav-item">
@@ -135,7 +135,7 @@ export default {
 }
 
 .Svuota-button {
-  padding: 10px 10px;
+  padding: 5px 10px;
   font-size: 16px;
   cursor: pointer;
   background-color: #000000;
@@ -145,6 +145,7 @@ export default {
   border: none;
   /* Rimuovi il bordo del pulsante */
   border-radius: 20px;
+  margin-left: 5px;
   margin-top: 20px;
   margin-bottom: 10px;
   /* Bordo arrotondato del pulsante */
@@ -163,7 +164,7 @@ export default {
 
 .numeroScarpe{
   margin-left: 20px;
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 .brandname {
@@ -192,11 +193,6 @@ export default {
     padding: 10px;
     background-color: #0cadbe;
     width: 100%;
-  }
-
-  .navigazione router-link::after {
-    content: none;
-    /* Nascondi il testo "|" vicino alle voci del menu */
   }
 
   .numeroScarpe{
