@@ -1,8 +1,8 @@
 <template>
     <div>
-        <router-link to="/shoesList">
-            <img :src="gifUrl" alt="GIF animata" />
-        </router-link>
+
+        <img :src="gifUrl" alt="GIF animata" />
+
     </div>
 </template>
 
