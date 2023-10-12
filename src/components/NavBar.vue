@@ -32,7 +32,6 @@
             </router-link>
           </li>
           <button @click="svuotaCarrello" class="Svuota-button">Svuota</button>
-          <li class="nav-item numeroScarpe">Modelli scarpe disponibili: {{ numeroScarpe }}</li>
         </ul>
       </nav>
     </div>
@@ -49,9 +48,6 @@ export default {
   computed: {
     carrello: function () {
       return this.$store.state.carrello;
-    },
-    numeroScarpe: function () {
-      return this.$store.getters.numeroScarpe;
     },
   },
   methods: {
@@ -162,11 +158,6 @@ export default {
   text-decoration: none;
 }
 
-.numeroScarpe{
-  margin-left: 20px;
-  padding-top: 5px;
-}
-
 .brandname {
   text-decoration: none;
   font-weight: bold;
@@ -193,10 +184,6 @@ export default {
     padding: 10px;
     background-color: #0cadbe;
     width: 100%;
-  }
-
-  .numeroScarpe{
-    all: unset;
   }
 
 }
