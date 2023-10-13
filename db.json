@@ -5,7 +5,12 @@
       "nome": "Letizia",
       "cognome": "Mollo",
       "eta": 23,
-      "email": "letizia.mollo24@gmail.com"
+      "email": "letizia.mollo24@gmail.com",
+      "telefono": "3669314891",
+      "password": "24gennaio2000",
+      "indirizzo": "Viale Europa 13",
+      "città": "Grinzane Cavour",
+      "provincia": "Cuneo"
     },
     {
       "id": 2,
