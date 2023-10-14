@@ -19,7 +19,7 @@ export default {
     header2: String,
     paragraph2: String,
   },
-  name: "ColumnText", // Nome del tuo componente
+  name: "ColumnText", 
 };
 </script>
 
@@ -31,7 +31,6 @@ export default {
 
 .column {
   flex-basis: 48%;
-  /* Imposta la larghezza della colonna al 48% del contenitore */
 }
 
 h1 {
