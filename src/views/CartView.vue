@@ -6,9 +6,7 @@
       <li v-for="(scarpa, index) in scarpeNelCarrello" :key="index">
         <template v-if="scarpa && scarpa.product && scarpa.price">
           {{ scarpa.product }} - {{ scarpa.price }} €
-          <span @click="rimuoviDalCarrello(scarpa)"
-            style="text-align: right; color: red; font-weight: bold; text-decoration: underline; cursor: pointer;"
-            class="text-right"><i class="fas fa-trash-alt"></i></span>
+          <span @click="rimuoviDalCarrello(scarpa)" class="remove-icon"><i class="fas fa-trash-alt"></i></span>
 
         </template>
       </li>
@@ -99,14 +97,24 @@ export default {
       // Controlla se devi mostrare il totale con spedizione
       this.mostraTotaleConSpedizione = true;
       alert("Prodotto eliminato dal carrello!");
-
     },
 
   }
 }
 </script>
 
-<style>
+<style scoped>
+/* ... Altri stili ... */
+
+.remove-icon {
+  color: red;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+  float: right;
+  /* Allinea l'icona a sinistra */
+}
+
 .total-amount {
   text-align: right;
   font-size: 1.2rem;
