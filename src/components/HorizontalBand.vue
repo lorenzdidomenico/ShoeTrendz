@@ -57,7 +57,15 @@ export default {
     cursor: pointer;
     background-color: #ffffff;
     color: #000000;
-    border: none;
-    border-radius: 20px;
+    border: 3px solid white;
+    border-radius: 25px;
+
+}
+
+.pulsante:hover {
+    color: #ffffff;
+    background-color: rgb(220, 150, 10);
+    border: 3px solid white;
+    font-size: bold;
 }
 </style>
