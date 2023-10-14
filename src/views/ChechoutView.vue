@@ -2,6 +2,7 @@
   <div class="totale">
     <h1>Checkout</h1>
     <br />
+
     <div v-if="mostraFormUtenteRegistrato">
       <!-- Form per utenti registrati -->
       <h2>Continua come utente registrato</h2>
@@ -11,6 +12,7 @@
         v-if="!formInviato && !mostraDatiUtenteRegistrato">Continua come ospite</span>
       <br />
     </div>
+
     <div v-else>
       <!-- Form per ospiti -->
       <h2>Continua come ospite</h2>
@@ -26,7 +28,6 @@
     <h2>RIEPILOGO ORDINE</h2>
     <h3>Scarpe nel carrello:</h3>
 
-    <!-- Visualizza un messaggio se il carrello è vuoto -->
     <div v-if="scarpeNelCarrello.length === 0">
       <p>Il tuo carrello è vuoto.</p>
     </div>
@@ -56,13 +57,12 @@
     <input v-model="codiceSconto" placeholder="Inserisci il codice sconto" />
     <button @click="applicaSconto" class="sconto-button">Applica Sconto</button>
 
-    <!-- Mostra l'importo dello sconto solo se lo sconto è stato applicato -->
+    <!-- Visualizza l'importo dello sconto solo se lo sconto è stato applicato -->
     <p v-if="scontoApplicato" style="text-align: right; color: green; font-weight: bold">
       Sconto applicato: -{{ (totaleCarrello - totaleScontato).toFixed(2) }} €
     </p>
 
     <!-- Visualizza i dati dell'utente registrato -->
-
     <div v-if="mostraDatiUtenteRegistrato">
       <br />
       <h2>DATI UTENTE REGISTRATO</h2>
@@ -74,7 +74,6 @@
         Indirizzo di spedizione: {{ datiUtente.indirizzo }},
         {{ datiUtente.città }}, {{ datiUtente.provincia }}
       </p>
-      <!-- Altri campi dati dell'utente registrato -->
     </div>
 
     <!-- Visualizza i dati dell'utente ospite -->
@@ -89,7 +88,6 @@
         Indirizzo utente ospite: {{ ospite.indirizzo }}, {{ ospite.città }},
         {{ ospite.provincia }}
       </p>
-      <!-- Altri campi dati dell'utente ospite -->
     </div>
 
     <br />
@@ -117,8 +115,8 @@ export default {
     return {
       mostraFormUtenteRegistrato: true,
       scontoApplicato: false,
-      datiUtente: {}, // Dati dell'utente registrato
-      mostraDatiUtenteRegistrato: false, // Mostra i dati dell'utente registrato
+      datiUtente: {}, 
+      mostraDatiUtenteRegistrato: false, 
       ospite: {
         nome: "",
         cognome: "",
@@ -128,7 +126,7 @@ export default {
         provincia: "",
         telefono: "",
       },
-      mostraDatiOspite: false, // Mostra i dati dell'utente ospite
+      mostraDatiOspite: false, 
     };
   },
   computed: {
@@ -152,7 +150,6 @@ export default {
       });
       totale += 5;
       if (this.scontoApplicato) {
-        // Applica lo sconto solo se è stato applicato
         totale *= 0.5;
       }
       return totale;
@@ -161,11 +158,11 @@ export default {
   methods: {
     gestisciAccessoOspite(datiOspite) {
       this.ospite = datiOspite;
-      this.mostraDatiOspite = true; // Mostra i dati dell'utente ospite
+      this.mostraDatiOspite = true;
     },
     async gestisciAccessoRiuscito(datiUtente) {
       this.datiUtente = datiUtente;
-      this.mostraDatiUtenteRegistrato = true; // Mostra i dati dell'utente registrato
+      this.mostraDatiUtenteRegistrato = true; 
 
       // Recupera i dati dell'utente registrato
       await this.recuperaDatiUtenteRegistrato();
@@ -190,10 +187,10 @@ export default {
     },
 
     applicaSconto() {
-      // Logica per applicare lo sconto
+   
       if (!this.scontoApplicato) {
         if (this.codiceSconto === "TRENDZ50") {
-          this.scontoApplicato = true; // Applica lo sconto al totale del carrello
+          this.scontoApplicato = true; 
 
           alert("Codice sconto riscattato correttamente!");
         } else {
@@ -205,14 +202,11 @@ export default {
     },
 
     vaiPagamento() {
-      // Esegui il controllo se il carrello è vuoto
       if (this.scarpeNelCarrello.length === 0) {
-        // Mostra un messaggio di "carrello vuoto" o esegui un'azione appropriata
         alert("Carrello vuoto! Aggiungi prodotti al carrello prima di procedere.");
         this.$router.push({ name: "shoes-list" });
         return;
       } else {
-        // Altrimenti, avvia il reindirizzamento alla vista "chechOut"
         this.$router.push({ name: 'pagamento' });
       }
     }
