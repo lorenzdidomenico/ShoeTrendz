@@ -7,7 +7,9 @@
         <!-- Verifica se 'scarpa' è definita e se ha le proprietà 'product' e 'price' -->
         <template v-if="scarpa && scarpa.product && scarpa.price">
           {{ scarpa.product }} - {{ scarpa.price }} €
-          <span @click="rimuoviDalCarrello(scarpa)" style="text-align: right; color: red; font-weight: bold; text-decoration: underline; cursor: pointer;" class="text-right">Rimuovi dal carrello</span>
+          <span @click="rimuoviDalCarrello(scarpa)"
+            style="text-align: right; color: red; font-weight: bold; text-decoration: underline; cursor: pointer;"
+            class="text-right"><i class="fas fa-trash-alt"></i></span>
 
         </template>
       </li>
@@ -21,29 +23,25 @@
     </p>
 
     <!-- Mostra il pulsante "Calcola Totale" solo se non è stato calcolato il totale con spedizione -->
-    <button
-      v-if="!mostraTotaleConSpedizione"
-      @click="calcolaTotale"
-      class="checkout-button"
-    >
+    <button v-if="!mostraTotaleConSpedizione" @click="calcolaTotale" class="checkout-button">
       Calcola Totale
     </button>
 
-<!-- Mostra il totale con spedizione solo se è stato calcolato e totaleSenzaSpedizione è maggiore di 0 -->
-<p v-if="mostraTotaleConSpedizione && totaleSenzaSpedizione > 0" style="text-align: right">
-  <strong>Totale con spedizione:</strong> {{ totaleConSpedizione }} €
-</p>
+    <!-- Mostra il totale con spedizione solo se è stato calcolato e totaleSenzaSpedizione è maggiore di 0 -->
+    <p v-if="mostraTotaleConSpedizione && totaleSenzaSpedizione > 0" style="text-align: right">
+      <strong>Totale con spedizione:</strong> {{ totaleConSpedizione }} €
+    </p>
 
-<!-- Mostra un messaggio diverso quando totaleSenzaSpedizione è uguale a 0 -->
-<p v-else-if="mostraTotaleConSpedizione && totaleSenzaSpedizione === 0" style="text-align: right">
-  Aggiungi prodotti al carrello per continuare
-</p>
+    <!-- Mostra un messaggio diverso quando totaleSenzaSpedizione è uguale a 0 -->
+    <p v-else-if="mostraTotaleConSpedizione && totaleSenzaSpedizione === 0" style="text-align: right">
+      Aggiungi prodotti al carrello per continuare
+    </p>
 
-<!-- Mostra il pulsante "Checkout" solo se è stato calcolato il totale con spedizione e totaleSenzaSpedizione è maggiore di 0 -->
+    <!-- Mostra il pulsante "Checkout" solo se è stato calcolato il totale con spedizione e totaleSenzaSpedizione è maggiore di 0 -->
 
-  <button v-if="mostraTotaleConSpedizione && totaleSenzaSpedizione > 0" @click="avviaCheckout" class="checkout-button">
-    Checkout
-  </button>
+    <button v-if="mostraTotaleConSpedizione && totaleSenzaSpedizione > 0" @click="avviaCheckout" class="checkout-button">
+      Checkout
+    </button>
 
   </div>
 </template>
@@ -86,30 +84,30 @@ export default {
       this.mostraTotaleConSpedizione = true;
     },
     avviaCheckout() {
-     // Esegui il controllo se il carrello è vuoto
-    if (this.scarpeNelCarrello.length === 0) {
-      // Mostra un messaggio di "carrello vuoto" o esegui un'azione appropriata
-      alert("Carrello vuoto! Aggiungi prodotti al carrello prima di procedere.");
-      this.$router.push({ name: "shoes-list"});
-      return;
-    } else {
-      // Altrimenti, avvia il reindirizzamento alla vista "chechOut"
-      this.$router.push({ name: 'chechOut' });
-    }
+      // Esegui il controllo se il carrello è vuoto
+      if (this.scarpeNelCarrello.length === 0) {
+        // Mostra un messaggio di "carrello vuoto" o esegui un'azione appropriata
+        alert("Carrello vuoto! Aggiungi prodotti al carrello prima di procedere.");
+        this.$router.push({ name: "shoes-list" });
+        return;
+      } else {
+        // Altrimenti, avvia il reindirizzamento alla vista "chechOut"
+        this.$router.push({ name: 'chechOut' });
+      }
     },
     rimuoviDalCarrello(scarpa) {
-    // Rimuovi la scarpa dal carrello
-    this.$store.commit("RIMUOVI_DAL_CARRELLO", scarpa);
-    
-    // Ricalcola il totale senza spedizione
-    this.totaleSenzaSpedizione = this.calcolaTotaleCarrello();
-    
-    // Calcola il totale con il costo di spedizione
-    this.totaleConSpedizione = this.totaleSenzaSpedizione + this.costoSpedizione;
-    
-    // Controlla se devi mostrare il totale con spedizione
-    this.mostraTotaleConSpedizione = true;
-  },
+      // Rimuovi la scarpa dal carrello
+      this.$store.commit("RIMUOVI_DAL_CARRELLO", scarpa);
+
+      // Ricalcola il totale senza spedizione
+      this.totaleSenzaSpedizione = this.calcolaTotaleCarrello();
+
+      // Calcola il totale con il costo di spedizione
+      this.totaleConSpedizione = this.totaleSenzaSpedizione + this.costoSpedizione;
+
+      // Controlla se devi mostrare il totale con spedizione
+      this.mostraTotaleConSpedizione = true;
+    },
   },
 };
 </script>
@@ -142,8 +140,8 @@ export default {
 }
 
 @media screen and (max-width: 992px) and (min-width: 768px) {
-  .totale{
+  .totale {
     margin-right: 50px;
   }
-} 
+}
 </style>
