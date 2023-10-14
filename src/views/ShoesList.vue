@@ -1,6 +1,6 @@
 <template>
   <div class="totale">
-    <h1>Scarpe</h1>
+    <h1>Prodotti</h1>
     <h2>Modelli disponibili: {{ numeroScarpe }} </h2>
     <div class="row">
       <ShoeCard v-for="elem in shoes" :key="elem.id" :shoe="elem" class="col-md-6"></ShoeCard>
