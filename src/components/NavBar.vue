@@ -1,22 +1,27 @@
 <template>
   <div id="nav" class="nav navbar navbar-expand-lg" :style="{ height: isNavbarOpen ? 'auto' : '60px' }">
+
     <div class="brand">
       <router-link v-bind:to="{ name: 'indexView' }">
         <img src="@/assets/logo.png" class="logo" />
       </router-link>
+
       <router-link v-bind:to="{ name: 'indexView' }">
         <h3 class="brandname">ShoeTrendz</h3>
       </router-link>
     </div>
+
     <button class="navbar-toggler" type="button" @click="toggleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse ms-auto flex-column" :class="{ 'show': isNavbarOpen }" id="navbarNav">
       <nav class="navigazione ms-auto">
         <ul class="navbar-nav">
           <li class="nav-item ">
             <router-link class="nav-link" v-bind:to="{ name: 'indexView' }">Novità e tendenze</router-link>
           </li>
+
           <li class="nav-item">
             <router-link class="nav-link" v-bind:to="{ name: 'shoes-list' }">Prodotti</router-link>
           </li>
@@ -26,15 +31,18 @@
               <img src="@/assets/UserIcon.png" alt="Utente" class="User-icon" />
             </router-link>
           </li>
+
           <li class="nav-item linea">
             <router-link class="nav-link" v-bind:to="{ name: 'carrello' }">
               <img src="@/assets/BagIcon.png" alt="Carrello" class="carrello-icon" /> ({{ carrello }})
             </router-link>
           </li>
+
           <button @click="svuotaCarrello" class="Svuota-button">Svuota</button>
         </ul>
       </nav>
     </div>
+
   </div>
 </template>
 
@@ -62,11 +70,6 @@ export default {
 </script>
 
 <style scoped>
-.body {
-  margin: 0;
-  padding: 0;
-}
-
 
 .logo {
   width: 100px;
@@ -85,7 +88,6 @@ export default {
   background-color: #0cadbe;
   padding-left: 10px;
   padding-right: 10px;
-
 }
 
 .brand {
@@ -100,9 +102,7 @@ export default {
 
 .brand img {
   max-width: 40px;
-  /* Imposta la larghezza massima del logo */
   margin-right: 20px;
-  /* Aggiunge spazio tra il logo e il nome del sito */
 }
 
 .nav .nav-item {
@@ -135,22 +135,17 @@ export default {
   font-size: 16px;
   cursor: pointer;
   background-color: #000000;
-  /* Colore di sfondo del pulsante (verde in questo caso) */
   color: white;
-  /* Colore del testo del pulsante (bianco in questo caso) */
   border: none;
-  /* Rimuovi il bordo del pulsante */
   border-radius: 20px;
   margin-left: 5px;
   margin-top: 20px;
   margin-bottom: 10px;
-  /* Bordo arrotondato del pulsante */
 }
 
 .Svuota-button:hover {
   background-color: white;
   color: #000000;
-  /* Colore di sfondo al passaggio del mouse */
 }
 
 
@@ -169,11 +164,7 @@ export default {
 .User-icon,
 .carrello-icon {
   width: 28px;
-  /* Imposta la larghezza dell'immagine a 30 pixel */
   height: auto;
-  /* Imposta l'altezza in base alla larghezza mantenendo l'aspetto originale */
-  /* Oppure, se vuoi una dimensione specifica per l'altezza, puoi impostarla anche qui */
-  /* height: 30px; */
 }
 
 @media screen and (max-width: 992px) {
