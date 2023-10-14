@@ -1,10 +1,9 @@
 <template>
   <div class="totale">
-    <!-- Aggiungi FasciaOrizzontale nella tua vista -->
+
     <HorizontalBand titolo="CREA IL TUO STILE CON ShoeTrendz:" sottotitolo="dove la moda incontra la comodità!"
       :testoPulsante="'Acquista'" :to="'/shoesList'" />
 
-    <!-- Includi il componente carosello qui -->
     <div class="carosello">
       <Carousel class="carousel" />
     </div>
@@ -14,10 +13,8 @@
         :paragraph1="'Lo sport ci mantiene in forma. Nel corpo e nello spirito. Ci unisce. Ha il potere di cambiare la vita delle persone. Attraverso storie di atleti di successo, ispirazione e suggerimenti per l allenamento. Articoli sportivi dotati delle tecnologie più sofisticate per migliorare le tue performance.Migliora i tuoi record personali.adidas è la casa degli amanti di ogni sport, dal running al calcio.Per chi vuole fuggire dal caos della città e dedicarsi all hiking. Per l appassionata di yoga che vuole eseguire pose perfette.Le 3 Strisce sono protagoniste della scena musicale.Sul palcoscenico dei festival.In un negozio di articoli sportivi adidas trovi prodotti che ti permettono di mantenere la concentrazione fino al fischio finale.Durante una gara.Fino al traguardo.Siamo qui per sostenere ogni creator.Migliorare le loro performance, le loro vite, e cambiare il mondo.'"
         :header2="'ABBIGLIAMENTO SPORTIVO, PER OGNI ATTIVITÀ.'"
         :paragraph2="'Shoetrendz crea abbigliamento per la palestra per ogni tipo di atleta. Creator che vogliono cambiare il proprio sport. Sfidare le convenzioni. Infrangere le regole per scriverne di nuove. E poi infrangerle di nuovo. Forniamo a team e atleti i migliori prodotti per l allenamento.Per mantenere alta la concentrazione.Creiamo abbigliamento sportivo progettato per aiutarti a raggiungere il traguardo.E conquistare trofei.Il nostro store dedicato alle donne offre i migliori reggiseni e tight sportivi.Per ogni genere di attività.Creiamo, innoviamo e sperimentiamo.Mettiamo alla prova le nuove tecnologie sul campo.Negli stadi, sulle piste, in piscina.Ci ispiriamo ai nostri prodotti più iconici per creare lo streetwear del futuro.come ad esempio NMD o le nostre tracksuit Firebird.Modelli sportivi d archivio ritornano protagonisti. Come Stan Smith e Superstar. Icone dello streetstyle e non solo.'" />
-
     </div>
 
-    <!-- Aggiungi il componente GifComponent con l'URL della GIF come prop -->
     <h1> Restock esclusivo: i migliori stili sono tornati. </h1>
     <h2>Acquista ora prima che finiscano di nuovo! </h2>
     <div class="Gif-container">
@@ -37,7 +34,7 @@ import ColumnText from '@/components/ColumnText.vue';
 
 export default {
   components: {
-    Carousel, // Utilizza lo stesso nome del componente importato
+    Carousel,
     HorizontalBand,
     GifCard,
     ColumnText
@@ -60,16 +57,12 @@ export default {
 .horizontal-band {
   margin-top: 0;
   margin-left: 20%;
-  /* Imposta il margine superiore desiderato per il contenuto */
   transition: margin-top 0.3s ease;
-  /* Aggiungi una transizione per un effetto di scorrimento fluido */
 }
 
-/* Riduci il margine superiore del contenuto quando il menu è aperto */
 .nav.navbar-expand-lg.show+.carosello,
 .nav.navbar-expand-lg.show+.horizontal-band {
   margin-top:
-    /* Altezza del menu quando è aperto */
     60px;
 }
 
