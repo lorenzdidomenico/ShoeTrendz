@@ -24,7 +24,8 @@ export default {
       return this.$store.getters.numeroScarpe;
     },
   },
-};
+
+}
 </script>
 
 <style scoped>
