@@ -38,7 +38,7 @@ import BaseButton from "@/components/BaseButton.vue";
 
 export default {
   props: ["id"],
-  components: { BaseButton }, // Aggiunto il componente BaseButton
+  components: { BaseButton }, 
   data: function () {
     return {
       shoe: {},
