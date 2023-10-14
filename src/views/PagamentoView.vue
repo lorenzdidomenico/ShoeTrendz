@@ -5,7 +5,6 @@
     <h2>Inserire dati carta</h2>
     <br />
 
-    <!-- Utilizziamo un unico form per tutti i campi -->
     <form @submit.prevent="procediPagamento" class="mt-4">
       <div class="form-group row">
         <label for="nome" class="col-sm-3 col-form-label"
@@ -126,16 +125,14 @@ export default {
   methods: {
     procediPagamento() {
       if (this.scarpeNelCarrello.length === 0) {
-    // Mostra un messaggio di "carrello vuoto" o esegui un'azione appropriata
     alert("Carrello vuoto! Aggiungi prodotti al carrello prima di procedere.");
     this.$router.push({ name: "shoes-list"});
       } else {
       this.pagamentoAvvenuto = true;
       this.$store.commit("SVUOTA_CARRELLO");
       setTimeout(() => {
-        // Utilizza il router di Vue per reindirizzare l'utente a indexVue
-        this.$router.push({ name: "indexView" });
-      }, 3000); // 3000 millisecondi = 3 secondi
+        this.$router.push({ name: "indexView" }); //reinderizzamento
+      }, 3000); 
     }
   },
   },
