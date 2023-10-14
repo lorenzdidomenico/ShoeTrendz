@@ -1,7 +1,7 @@
 <template>
   <div class="foot">
     <div class="row">
-      <div class="col text-left">ShoeTrendz.com</div>
+     <div class="col text-left">  <router-link v-bind:to="{ name: 'indexView' }">ShoeTrendz.com </router-link></div>
       <div class="col text-center">
         <a
           href="https://agreementservice.svs.nike.com/it/it_it/rest/agreement?agreementType=privacyPolicy&uxId=com.nike.unite&country=IT&language=it&requestType=redirect"
