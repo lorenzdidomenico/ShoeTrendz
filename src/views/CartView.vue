@@ -4,7 +4,6 @@
 
     <ul>
       <li v-for="(scarpa, index) in scarpeNelCarrello" :key="index">
-        <!-- Verifica se 'scarpa' è definita e se ha le proprietà 'product' e 'price' -->
         <template v-if="scarpa && scarpa.product && scarpa.price">
           {{ scarpa.product }} - {{ scarpa.price }} €
           <span @click="rimuoviDalCarrello(scarpa)"
@@ -17,7 +16,6 @@
     <p v-if="scarpeNelCarrello.length === 0">Il tuo carrello è vuoto</p>
     <hr v-if="scarpeNelCarrello.length > 0" class="total-amount" />
 
-    <!-- Mostra il totale iniziale -->
     <p style="text-align: right">
       <strong>Totale:</strong> {{ totaleSenzaSpedizione }} €
     </p>
@@ -27,18 +25,17 @@
       Calcola Totale
     </button>
 
-    <!-- Mostra il totale con spedizione solo se è stato calcolato e totaleSenzaSpedizione è maggiore di 0 -->
+    <!-- Mostra il totale con spedizione solo se è stato calcolato e ci sono elementi nel carrello -->
     <p v-if="mostraTotaleConSpedizione && totaleSenzaSpedizione > 0" style="text-align: right">
       <strong>Totale con spedizione:</strong> {{ totaleConSpedizione }} €
     </p>
 
-    <!-- Mostra un messaggio diverso quando totaleSenzaSpedizione è uguale a 0 -->
+    <!-- Mostra un messaggio diverso quando non ci sono elementi nel carrello -->
     <p v-else-if="mostraTotaleConSpedizione && totaleSenzaSpedizione === 0" style="text-align: right">
       Aggiungi prodotti al carrello per continuare
     </p>
 
-    <!-- Mostra il pulsante "Checkout" solo se è stato calcolato il totale con spedizione e totaleSenzaSpedizione è maggiore di 0 -->
-
+    <!-- Mostra il pulsante "Checkout" solo se è stato calcolato il totale con spedizione e ci sono elementi nel carrello -->
     <button v-if="mostraTotaleConSpedizione && totaleSenzaSpedizione > 0" @click="avviaCheckout" class="checkout-button">
       Checkout
     </button>
@@ -52,7 +49,7 @@ import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      costoSpedizione: 5, // Imposta il costo della spedizione desiderato
+      costoSpedizione: 5, 
       mostraTotaleConSpedizione: false,
       codiceSconto: "",
       scontoRiscattato: false,
@@ -62,7 +59,6 @@ export default {
     ...mapGetters(["scarpeNelCarrello"]),
   },
   methods: {
-    // Funzione per calcolare l'ammontare totale del carrello
     calcolaTotaleCarrello() {
       let totale = 0;
       this.scarpeNelCarrello.forEach((scarpa) => {
@@ -72,31 +68,26 @@ export default {
       });
       return totale;
     },
+
     calcolaTotale() {
-      // Calcola il totale senza spedizione
       this.totaleSenzaSpedizione = this.calcolaTotaleCarrello();
 
-      // Mostra il totale con il costo di spedizione
       this.totaleConSpedizione =
         this.totaleSenzaSpedizione + this.costoSpedizione;
 
-      // Ora hai il totale con il costo di spedizione disponibile
       this.mostraTotaleConSpedizione = true;
     },
+
     avviaCheckout() {
-      // Esegui il controllo se il carrello è vuoto
       if (this.scarpeNelCarrello.length === 0) {
-        // Mostra un messaggio di "carrello vuoto" o esegui un'azione appropriata
         alert("Carrello vuoto! Aggiungi prodotti al carrello prima di procedere.");
         this.$router.push({ name: "shoes-list" });
         return;
       } else {
-        // Altrimenti, avvia il reindirizzamento alla vista "chechOut"
         this.$router.push({ name: 'chechOut' });
       }
     },
     rimuoviDalCarrello(scarpa) {
-      // Rimuovi la scarpa dal carrello
       this.$store.commit("RIMUOVI_DAL_CARRELLO", scarpa);
 
       // Ricalcola il totale senza spedizione
