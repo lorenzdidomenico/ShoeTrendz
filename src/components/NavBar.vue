@@ -156,7 +156,6 @@ export default {
   font-weight: bold;
   font-size: 2 em;
   color: #ffffff;
-
 }
 
 .User-icon,
