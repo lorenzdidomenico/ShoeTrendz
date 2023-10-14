@@ -16,18 +16,18 @@
               <img :src="require('@/assets/ThirdSlide.jpg')" class="d-block w-100" alt="Prima immagine" />
               <h5 class="titolo">Rise.Run.Rest.Repeat</h5>
             </div>
-            <!-- Altre immagini del carousel -->
+
           </div>
 
           <div class="carouselIndicators">
-          <button type="button" data-bs-target="#mioCarousel" data-bs-slide-to="0" class="active" aria-current="true"
-            aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#mioCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#mioCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
+            <button type="button" data-bs-target="#mioCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+              aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#mioCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#mioCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
         </div>
 
-        
+
       </div>
     </div>
 
@@ -68,7 +68,7 @@ export default {
   margin: 0;
 }
 
-.carouselIndicators{
+.carouselIndicators {
   display: flex;
   justify-content: center;
   gap: 10px;
