@@ -1,12 +1,14 @@
 <template>
   <div class="container">
     <div class="row"></div>
+
     <div class="row">
       <div class="col">
         <NavBar></NavBar>
       </div>
     </div>
     <br />
+
     <div class="row">
       <div class="col-md-9 col-sm-12">
         <router-view />
@@ -15,11 +17,13 @@
         <SideBar></SideBar>
       </div>
     </div>
+
     <div class="row grigio">
       <div class="col">
         <FooterBar></FooterBar>
       </div>
     </div>
+    
   </div>
 </template>
 
