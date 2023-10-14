@@ -148,11 +148,9 @@ export default {
   color: #000000;
 }
 
-
 .linea {
   text-decoration: none;
 }
-
 .brandname {
   text-decoration: none;
   font-weight: bold;
