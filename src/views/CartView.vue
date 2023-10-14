@@ -49,7 +49,7 @@ import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      costoSpedizione: 5, 
+      costoSpedizione: 5,
       mostraTotaleConSpedizione: false,
       codiceSconto: "",
       scontoRiscattato: false,
@@ -98,9 +98,12 @@ export default {
 
       // Controlla se devi mostrare il totale con spedizione
       this.mostraTotaleConSpedizione = true;
+      alert("Prodotto eliminato dal carrello!");
+
     },
-  },
-};
+
+  }
+}
 </script>
 
 <style>
