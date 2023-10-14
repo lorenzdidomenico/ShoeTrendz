@@ -23,6 +23,7 @@ export default createStore({
           "Dislivello tallone-punta: 10 mm",
         ],
       },
+
       {
         id: 2,
         product: "Nike Dunk Low Retro",
@@ -46,6 +47,7 @@ export default createStore({
           "Inserti traforati sulla punta.",
         ],
       },
+
       {
         id: 3,
         product: "Air Force 1 x Terror Squad",
@@ -69,6 +71,7 @@ export default createStore({
           "SLogo Wings sul collare.",
         ],
       },
+
       {
         id: 4,
         product: "Nike Air Force 1 '07",
@@ -91,6 +94,7 @@ export default createStore({
           "Inserti traforati sulla punta",
         ],
       },
+
     ],
     cards: [
       {
@@ -120,11 +124,13 @@ export default createStore({
     carrello: 0,
     scarpeNelCarrello: [],
   },
+
   mutations: {
     AGGIUNGI_CARRELLO: function (state, scarpa) {
       state.carrello++;
       state.scarpeNelCarrello.push(scarpa);
     },
+
     RIMUOVI_DAL_CARRELLO: function (state, scarpa) {
       state.carrello--;
       const index = state.scarpeNelCarrello.findIndex(item => item.id === scarpa.id);
@@ -132,11 +138,13 @@ export default createStore({
         state.scarpeNelCarrello.splice(index, 1);
       }
     },
+
     SVUOTA_CARRELLO: function (state) {
       state.carrello = 0;
       state.scarpeNelCarrello = [];
     },
   },
+  
   actions: {},
   modules: {},
   getters: {
