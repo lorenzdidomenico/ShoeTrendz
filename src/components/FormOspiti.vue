@@ -1,4 +1,5 @@
 <template>
+  
   <form @submit.prevent="inviaFormOspite" class="mt-4">
     <div class="form-group row">
       <label for="nome" class="col-sm-3 col-form-label">Nome:</label>

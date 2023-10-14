@@ -1,6 +1,7 @@
 <template>
   <div class="totale">
     <h2>Inserisci un nuovo utente</h2>
+
     <form @submit.prevent="onSubmit">
       <div class="form-group row">
         <label for="nome" class="col-sm-3 col-form-label">Nome:</label>
@@ -15,6 +16,7 @@
         </div>
       </div>
       <br />
+
       <div class="form-group row">
         <label for="cognome" class="col-sm-3 col-form-label">Cognome:</label>
         <div class="col-sm-9">
@@ -148,11 +150,11 @@ export default {
         .then((response) => {
           console.log(response.data);
           this.messaggioConferma =
-            "Profilo creato correttamente. Verrai ora reindirizzato al login"; // Imposta il messaggio
+            "Profilo creato correttamente. Verrai ora reindirizzato al login"; 
           setTimeout(() => {
-            this.messaggioConferma = ""; // Nascondi il messaggio dopo qualche secondo
+            this.messaggioConferma = ""; 
             this.$router.push({ name: "utente" }); // Reindirizza a ProfileView
-          }, 5000); // Nascondi il messaggio dopo 3 secondi (puoi modificare il tempo)
+          }, 5000); // Timer 3 secondi
         })
         .catch((error) => {
           console.log(error);
