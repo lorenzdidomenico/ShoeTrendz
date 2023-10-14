@@ -1,5 +1,6 @@
 <template>
   <div class="totale">
+
     <form @submit.prevent="effettuaAccesso">
       <div class="form-group row">
         <label for="email" class="col-sm-3 col-form-label">Email:</label>
@@ -15,6 +16,7 @@
         </div>
       </div>
       <br />
+
       <div class="form-group row">
         <label for="password" class="col-sm-3 col-form-label">Password:</label>
         <div class="col-sm-9">
@@ -29,10 +31,12 @@
         </div>
       </div>
       <br />
+
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Accedi</button>
       </div>
     </form>
+
   </div>
 </template>
 
@@ -52,7 +56,7 @@ export default {
   },
   methods: {
     async effettuaAccesso() {
-      // Esegui la richiesta HTTP per ottenere i dati utente dal file JSON
+      // Esegue la richiesta HTTP per ottenere i dati utente dal file JSON
       try {
         const response = await axios.get("http://localhost:3001/utenti");
         const utenti = response.data;
@@ -68,16 +72,15 @@ export default {
           // Salva l'ID dell'utente
           this.userId = utenteTrovato.id;
 
-          // Emetti un evento con i dati dell'utente registrato
+          // Emette un evento con i dati dell'utente registrato
           this.$emit("accessoRiuscito", utenteTrovato);
           alert("Accesso riuscito!");
         } else {
-          // Esegui azioni per l'accesso non riuscito
+
           alert("Credenziali non valide. Riprova.");
         }
       } catch (error) {
         console.error("Errore durante la richiesta HTTP:", error);
-        // Gestisci l'errore in modo appropriato, ad esempio, mostrando un messaggio di errore all'utente
       }
     },
   },
