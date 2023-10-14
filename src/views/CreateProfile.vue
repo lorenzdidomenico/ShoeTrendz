@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import CreateProfileForm from "@/components/CreateProfileForm.vue"; // Assicurati che il percorso sia corretto
+import CreateProfileForm from "@/components/CreateProfileForm.vue"; 
 
 export default {
   components: {
