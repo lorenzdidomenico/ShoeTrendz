@@ -167,6 +167,15 @@ export default {
   height: auto;
 }
 
+/* Inversione colori icone omino e carrello */
+.User-icon:hover {
+  filter: brightness(0) invert(1);
+}
+
+.carrello-icon:hover{
+  filter: brightness(0) invert(1);
+}
+
 @media screen and (max-width: 992px) {
   .navigazione {
     display: flex;
