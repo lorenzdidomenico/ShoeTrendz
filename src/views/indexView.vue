@@ -26,9 +26,9 @@
 </template>
 
 <script>
-import Carousel from "@/components/CarouselCard.vue"; // Assicurati che il percorso sia corretto
-import HorizontalBand from "@/components/HorizontalBand.vue"; // Assicurati che il percorso sia corretto
-import GifCard from "@/components/GifCard.vue"; // Assicurati che il percorso sia corretto
+import Carousel from "@/components/CarouselCard.vue"; 
+import HorizontalBand from "@/components/HorizontalBand.vue"; 
+import GifCard from "@/components/GifCard.vue"; 
 import ColumnText from '@/components/ColumnText.vue';
 
 
