@@ -14,7 +14,7 @@ Mollo Letizia
 
 ## Requisiti di Installazione
 
--
+- Axios
 -
 
 ## Configurazione
