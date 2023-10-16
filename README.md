@@ -12,10 +12,10 @@ Gardenghi Luca
 Di Domenico Lorenzo
 Mollo Letizia
 
-## Requisiti di Installazione
+## PreRequisiti di Installazione
 
 - Axios
--
+- Node.js
 
 ## Configurazione
 
