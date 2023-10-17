@@ -148,9 +148,6 @@ export default createStore({
   actions: {},
   modules: {},
   getters: {
-    nomeEsteso: function (state) {
-      return state.utente.nome + " " + state.utente.cognome;
-    },
     getShoeById: (state) => (id) => {
       return state.shoes[id - 1];
     },
