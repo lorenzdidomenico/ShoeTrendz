@@ -13,7 +13,6 @@ export default {
       if (this.shoe.inventory > 0) {
         // Chiamate le mutazione per aggiungere la scarpa al carrello
         this.$store.commit("AGGIUNGI_CARRELLO", this.shoe);
-        this.$store.commit("AGGIORNA_CONTEGGIO_CARRELLO");
 
         alert("Prodotto aggiunto al carrello!");
 
