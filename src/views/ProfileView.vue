@@ -3,7 +3,7 @@
     <h1>Profilo utente</h1> <br>
     <h2>Accedi</h2>
 
-    <LoginForm @accessoRiuscito="gestisciAccessoRiuscito" />
+    <LoginForm />
     <br />
     <router-link v-bind:to="{ name: 'nuovoUtente' }"
       >Non sei registrato? Crea il tuo profilo!</router-link
@@ -33,11 +33,6 @@ export default {
       .catch((error) => {
         console.error(error); 
       });
-  },
-  methods: {
-    gestisciAccessoRiuscito() {
-      alert("Accesso riuscito!");
-    },
   },
 };
 </script>
