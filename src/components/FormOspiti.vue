@@ -124,6 +124,8 @@ export default {
       email: "",
       indirizzo: "",
       telefono: "",
+      città: "",
+      provincia: "",
     };
   },
   methods: {
